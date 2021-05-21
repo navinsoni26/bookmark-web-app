@@ -1,0 +1,48 @@
+[
+    {
+        "id": "1",
+        "name": "Office",
+        "count": 28,
+        "order": 1,
+        "show": true,
+        "children": [
+            {
+                "id": "11",
+                "name": "Jira",
+                "count": 12,
+                "order": 2,
+                "show": true
+            },
+            {
+                "id": "12",
+                "name": "Wiki",
+                "count": 14,
+                "order": 4,
+                "show": true
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Personal",
+        "count": 16,
+        "order": 3,
+        "show": true,
+        "children": [
+            {
+                "id": "21",
+                "name": "Flutter",
+                "count": 23,
+                "order": 2,
+                "show": true
+            },
+            {
+                "id": "22",
+                "name": "Youtube",
+                "count": 21,
+                "order": 2,
+                "show": true
+            }
+        ]
+    }
+]

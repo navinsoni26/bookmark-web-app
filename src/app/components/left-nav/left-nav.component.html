@@ -1,0 +1,24 @@
+<div class="container">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Manage Collections</a></li>
+        <li><a href="#">Tags</a></li>
+        <li><a href="#">Favorites</a></li>
+        <li><a href="#">Recently Shared</a></li>
+    </ul>
+    <hr>
+    <div class="collections">
+        <div class="collection" *ngFor="let collection of collections; index as i" [id]="collection.id">
+            <div class="parent">
+                <span class="collection-name"><a href="">{{collection.name}}</a></span>
+                <span>{{collection.count}}</span>
+            </div>
+            <ng-container *ngIf="collection.children.length > 0">
+                <div class="children" *ngFor="let child of collection.children; index as j" [id]="child.id">
+                    <span class="collection-name"><a href="">{{child.name}}</a></span>
+                    <span>{{child.count}}</span>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

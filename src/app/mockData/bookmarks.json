@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "title": "Google Play store",
+      "url": "https://bookmark1.com",
+      "notes": "Notes for Bookmark 1",
+      "collectionId": 101,
+      "createdAt": "2020-08-22T04:06:40.604Z",
+      "updatedAt": "2020-08-22T04:06:40.604Z",
+      "isFav": true,
+      "iconUrl": "https://up.raindrop.io/collection/thumbs/126/150/04/f3d245b609f5a1268422eb515b6f8913.png",
+      "tags": {
+        "id": 0,
+        "name": "tag 1"
+      }
+    },
+    {
+        "id": 2,
+        "title": "Css Tricks",
+        "url": "https://csstricks.com",
+        "notes": "Css Tricks Ray Wanderlich",
+        "collectionId": 101,
+        "createdAt": "2020-08-22T04:06:40.604Z",
+        "updatedAt": "2020-08-22T04:06:40.604Z",
+        "isFav": true,
+        "iconUrl": "https://up.raindrop.io/collection/thumbs/126/150/04/f3d245b609f5a1268422eb515b6f8913.png",
+        "tags": {
+          "id": 0,
+          "name": "tag 1"
+        }
+      }
+      
+  ]

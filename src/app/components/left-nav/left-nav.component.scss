@@ -1,0 +1,9 @@
+.collection .parent, .collection .children {
+    display: flex;
+}
+.collection-name {
+    flex :1;
+}
+.children {
+    margin-left: 15px;
+}

@@ -1,0 +1,25 @@
+<div class="collection-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>No. Of Bookmarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let collection of collections">
+                <tr>
+                    <td>{{collection.name}}</td>
+                    <td>{{collection.count}}</td>
+                </tr>
+                <ng-container *ngIf="collection.children.length > 0">
+                    <tr *ngFor="let child of collection.children">
+                        <td style="padding-left: 20px;">{{child.name}}</td>
+                        <td>{{child.count}}</td>
+                    </tr> 
+                </ng-container>
+            </ng-container>
+            
+        </tbody>
+    </table>
+</div>
