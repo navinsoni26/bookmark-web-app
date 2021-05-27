@@ -1,9 +1,93 @@
-.collection .parent, .collection .children {
+
+.primary-link {
     display: flex;
+    // background-color: lightpink;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: rgba(0,0,0,0.7);
+
+    &:hover{
+        background-color: rgb(195, 222, 248);
+    }
+
+    
+    &__icon {
+        width: 18px;
+        height: 18px;
+        fill: rgba(0,0,0,0.7);
+    }
+
+    span {
+        padding-left: 10px;
+    }
 }
-.collection-name {
-    flex :1;
+
+.parent{
+    padding: 10px 5px 10px 15px;
+    // margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: lightgray;
+    }
 }
-.children {
-    margin-left: 15px;
+
+.children  {
+    padding: 10px 5px 10px 50px;
+    // margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: lightgray;
+    }
+
 }
+.collection {
+
+    &__link{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding-right: 12px;
+        text-decoration: none;
+        color: rgba(0,0,0,0.9);
+    }
+    &__name {
+        flex: 1;
+    }
+
+    &__count{
+        // display: inline-block;
+        background-color: lightsalmon;
+        padding: 5px 10px;
+        font-size: 11px;
+        border-radius: 4px;
+       
+    }
+    &__menu {
+        height: 100%;
+    }
+    &__menu-icon {
+        width: 14px;
+        height: 14px;
+        fill: rgba(0,0,0,0.7);
+    }
+    &__expand-icon {
+        padding: 2px;
+        box-sizing: content-box;
+        width: 16px;
+        height: 16px;
+        fill: rgba(0,0,0,0.7);
+        margin-right: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(151, 148, 148);
+        }
+    }
+
+}
+

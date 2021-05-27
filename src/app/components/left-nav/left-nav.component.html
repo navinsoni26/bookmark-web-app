@@ -1,22 +1,96 @@
 <div class="container">
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Manage Collections</a></li>
-        <li><a href="#">Tags</a></li>
-        <li><a href="#">Favorites</a></li>
-        <li><a href="#">Recently Shared</a></li>
+        <li><a class="primary-link" href="#">
+            <svg class="primary-link__icon">
+                <use 
+                xlink:href="assets/sprite.svg#icon-home" 
+                href="assets/sprite.svg#icon-home">
+                </use>
+            </svg>
+            <span>Home</span>
+        </a></li>
+        <li><a class="primary-link" href="#">
+            <svg class="primary-link__icon">
+                <use 
+                xlink:href="assets/sprite.svg#icon-collections_bookmark" 
+                href="assets/sprite.svg#icon-collections_bookmark">
+                </use>
+            </svg>
+            <span>Manage Collections</span>    
+        </a></li>
+        <li><a class="primary-link" href="#">
+            <svg class="primary-link__icon">
+                <use 
+                xlink:href="assets/sprite.svg#icon-tag" 
+                href="assets/sprite.svg#icon-tag">
+                </use>
+            </svg>
+            <span>Tags</span>    
+        </a></li>
+        <li><a class="primary-link" href="#">
+            <svg class="primary-link__icon">
+                <use 
+                xlink:href="assets/sprite.svg#icon-star_outline" 
+                href="assets/sprite.svg#icon-star_outline">
+                </use>
+            </svg>
+            <span>Favorites</span> 
+        </a></li>
+        <li><a class="primary-link" href="#">
+            <svg class="primary-link__icon">
+                <use 
+                xlink:href="assets/sprite.svg#icon-share" 
+                href="assets/sprite.svg#icon-share">
+                </use>
+            </svg>
+            <span>Recently Shared</span> 
+        </a></li>
     </ul>
     <hr>
     <div class="collections">
         <div class="collection" *ngFor="let collection of collections; index as i" [id]="collection.id">
             <div class="parent">
-                <span class="collection-name"><a href="">{{collection.name}}</a></span>
-                <span>{{collection.count}}</span>
+                <svg class="collection__expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="expandCollapseArray[i]">
+                    <use 
+                    xlink:href="assets/sprite.svg#icon-caret-down" 
+                    href="assets/sprite.svg#icon-caret-down">
+                    </use>
+                </svg>
+                <svg class="collection__expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="!expandCollapseArray[i]">
+                    <use 
+                    xlink:href="assets/sprite.svg#icon-caret-right" 
+                    href="assets/sprite.svg#icon-caret-right">
+                    </use>
+                </svg>
+                <a class="collection__link" href="">
+                    <span class="collection__name">{{collection.name}}</span>
+                    <span class="collection__count">{{collection.count}}</span>
+                </a>
+                <div class="collection__menu">
+                    <svg class="collection__menu-icon">
+                        <use 
+                        xlink:href="assets/sprite.svg#icon-dots-three-vertical" 
+                        href="assets/sprite.svg#icon-dots-three-vertical">
+                        </use>
+                    </svg>
+                </div>
+                
             </div>
             <ng-container *ngIf="collection.children.length > 0">
-                <div class="children" *ngFor="let child of collection.children; index as j" [id]="child.id">
-                    <span class="collection-name"><a href="">{{child.name}}</a></span>
-                    <span>{{child.count}}</span>
+                <div class="children" *ngFor="let child of collection.children; index as j" [id]="child.id" [ngStyle]="{'display' : expandCollapseArray[i] ? '' : 'none'}">
+                   
+                    <a class="collection__link" href="">
+                        <span class="collection__name">{{child.name}}</span>
+                        <span class="collection__count">{{child.count}}</span>
+                    </a>
+                    <div class="collection__menu">
+                        <svg class="collection__menu-icon">
+                            <use 
+                            xlink:href="assets/sprite.svg#icon-dots-three-vertical" 
+                            href="assets/sprite.svg#icon-dots-three-vertical">
+                            </use>
+                        </svg>
+                    </div>
                 </div>
             </ng-container>
         </div>

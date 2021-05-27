@@ -1,0 +1,66 @@
+.action-column {
+    display: flex;
+
+    
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    opacity: 60%;
+}
+
+.icon-container {
+    padding: 10px;
+            margin-right: 4px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+}
+.collection-container {
+    background: whitesmoke;
+    height: 100%;
+}
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: rgba(0,0,0,0.7);
+    // top: 50%;
+    left: 50%;
+    top: 105%;
+    transform:  translateX(-50%);
+}
+
+table {
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+    width: 90%;
+    margin: 20px auto;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+// table, th, td {
+//     border: 1px solid black;
+//   }
+
+  th, td {
+    padding: 4px 15px;
+    text-align: left;
+  }
+
+  .expand-column {
+      width: 30px;
+      padding: 4px 0px 4px 10px;
+  }
+  .name-column {
+      width: 30%;
+  }

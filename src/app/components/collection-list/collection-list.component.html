@@ -1,25 +1,79 @@
 <div class="collection-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>No. Of Bookmarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-container *ngFor="let collection of collections">
-                <tr>
-                    <td>{{collection.name}}</td>
-                    <td>{{collection.count}}</td>
-                </tr>
-                <ng-container *ngIf="collection.children.length > 0">
-                    <tr *ngFor="let child of collection.children">
-                        <td style="padding-left: 20px;">{{child.name}}</td>
-                        <td>{{child.count}}</td>
-                    </tr> 
-                </ng-container>
-            </ng-container>
-            
-        </tbody>
-    </table>
+  <h2>Collections</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>No. Of Bookmarks</th>
+        <th>Show/Hide</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let collection of collections">
+        <tr>
+          <td class="expand-column">
+            <svg class="icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-caret-down"
+                href="assets/sprite.svg#icon-caret-down"
+              ></use>
+            </svg>
+          </td>
+          <td class="name-column">{{ collection.name }}</td>
+          <td class="count-column">{{ collection.count }}</td>
+          <td></td>
+          <td class="action-column">
+            <div class="icon-container">
+              <svg class="icon">
+                <use xlink:href="assets/sprite.svg#icon-edit"></use>
+              </svg>
+              <div class="tooltip-text">Edit</div>
+            </div>
+            <div class="icon-container">
+              <svg class="icon">
+                <use xlink:href="assets/sprite.svg#icon-share"></use>
+              </svg>
+              <div class="tooltip-text">Share</div>
+            </div>
+            <div class="icon-container">
+              <svg class="icon">
+                <use xlink:href="assets/sprite.svg#icon-delete"></use>
+              </svg>
+              <div class="tooltip-text">Delete</div>
+            </div>
+          </td>
+        </tr>
+        <ng-container *ngIf="collection.children.length > 0">
+          <tr *ngFor="let child of collection.children">
+            <td></td>
+            <td style="padding-left: 20px">{{ child.name }}</td>
+            <td>{{ child.count }}</td>
+            <td></td>
+            <td class="action-column">
+              <div class="icon-container">
+                <svg class="icon">
+                  <use xlink:href="assets/sprite.svg#icon-edit"></use>
+                </svg>
+                <div class="tooltip-text">Edit</div>
+              </div>
+              <div class="icon-container">
+                <svg class="icon">
+                  <use xlink:href="assets/sprite.svg#icon-share"></use>
+                </svg>
+                <div class="tooltip-text">Share</div>
+              </div>
+              <div class="icon-container">
+                <svg class="icon">
+                  <use xlink:href="assets/sprite.svg#icon-delete"></use>
+                </svg>
+                <div class="tooltip-text">Delete</div>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
 </div>

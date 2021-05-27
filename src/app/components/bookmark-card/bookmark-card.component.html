@@ -1,4 +1,77 @@
-<div class="bookmark-card">
-    <div class="title">{{bookmark.title}}</div>
-    <div class="url">{{bookmark.url}}</div>
+<div class="bookmark-card" [ngClass]="{'active' : isChecked}">
+  <div class="bookmark-card__select">
+    <input
+      type="checkbox"
+      name="chkbox"
+      id="chkbox"
+      [checked]="isChecked"
+      (change)="onCheckboxChange($event)"
+    />
+  </div>
+  <div class="bookmark-card__favicon">
+    <img [src]="bookmark.iconUrl" alt="" />
+  </div>
+  <div class="bookmark-card__content">
+    <div class="bookmark-card__title">{{ bookmark.title }}</div>
+    <div class="bookmark-card__url">{{ bookmark.url }}</div>
+    <div class="bookmark-card__notes">{{ bookmark.notes }}</div>
+    <div class="bookmark-card__additional-info">
+      <div class="bookmark-card__date">{{ bookmark.createdAt }}</div>
+      <span> 
+        
+      </span>
+      <div class="bookmark-card__tags">
+        <span class="bookmark-card__tag"># Google Play</span>
+        <span class="bookmark-card__tag"># Screenshots</span>
+      </div>
+    </div>
+   
+  </div>
+  <div class="bookmark-card__action">
+    <div class="action">
+      <svg class="bookmark-card__icon">
+        <use
+          xlink:href="assets/sprite.svg#icon-share"
+          href="assets/sprite.svg#icon-share"
+        ></use>
+      </svg>
+      <div class="tooltip-text">
+        Share
+      </div>
+    </div>
+    <div class="action">
+      <svg class="bookmark-card__icon">
+        <use
+          xlink:href="assets/sprite.svg#icon-caret-down"
+          href="assets/sprite.svg#icon-caret-down"
+        ></use>
+      </svg>
+      <div class="tooltip-text">
+        Delete
+      </div>
+    </div>
+   
+    <div class="action">
+      <svg class="bookmark-card__icon">
+        <use
+          xlink:href="assets/sprite.svg#icon-tag"
+          href="assets/sprite.svg#icon-tag"
+        ></use>
+      </svg>
+      <div class="tooltip-text">
+        Copy
+      </div>
+    </div>
+    <div class="action">
+      <svg class="bookmark-card__icon">
+        <use
+          xlink:href="assets/sprite.svg#icon-collections_bookmark"
+          href="assets/sprite.svg#icon-collections_bookmark"
+        ></use>
+      </svg>
+      <div class="tooltip-text">
+        Favorite
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,9 +2,32 @@
     <div class="bookmarks__header">
         <h3>Collection Name</h3>
     </div>
+    <div>
+        <svg class="icon" *ngIf="checkboxState === eCheckboxState.NONE" (click)="onGlobalCheckboxChecked(eCheckboxState.NONE)">
+            <use 
+            xlink:href="assets/sprite.svg#icon-check_box_outline_blank" 
+            href="assets/sprite.svg#icon-check_box_outline_blank">
+            </use>
+        </svg>
+        <svg class="icon" *ngIf="checkboxState === eCheckboxState.FEW" (click)="onGlobalCheckboxChecked(eCheckboxState.FEW)"> 
+           
+            <use 
+            xlink:href="assets/sprite.svg#icon-indeterminate_check_box" 
+            href="assets/sprite.svg#icon-indeterminate_check_box">
+            </use> 
+        </svg>
+        <svg class="icon" *ngIf="checkboxState === eCheckboxState.ALL" (click)="onGlobalCheckboxChecked(eCheckboxState.ALL)">
+            <use 
+            xlink:href="assets/sprite.svg#icon-check_box" 
+            href="assets/sprite.svg#icon-check_box">
+            </use>
+        </svg>
+    </div>
     <ng-container *ngFor="let bookmark of bookmarks">
-        <app-bookmark-card [bookmark]="bookmark"></app-bookmark-card>
-        <hr>
+        <app-bookmark-card [bookmark]="bookmark" 
+        [isChecked] = "isCheckedAll"
+        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"></app-bookmark-card>
+        
     </ng-container>
     
 </div>

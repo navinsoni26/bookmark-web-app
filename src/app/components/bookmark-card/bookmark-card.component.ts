@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
 
 @Component({
@@ -8,9 +8,17 @@ import { Bookmark } from 'src/app/models/bookmark';
 })
 export class BookmarkCardComponent implements OnInit {
   @Input() bookmark: Bookmark = new Bookmark() ;
+  @Output() isBookmarkSelectedEvent = new EventEmitter<boolean>();
+  @Input() isChecked = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCheckboxChange(event: any){
+    this.isChecked = !this.isChecked;
+    console.log(this.isChecked);
+    this.isBookmarkSelectedEvent.emit(this.isChecked);
   }
 
 }

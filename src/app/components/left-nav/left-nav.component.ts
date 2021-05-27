@@ -9,7 +9,7 @@ import { TestService } from 'src/app/services/test.service';
 })
 export class LeftNavComponent implements OnInit {
   collections: Collection[] = [];
-
+  expandCollapseArray: boolean[] = [];
   constructor(private service: TestService) { }
 
   ngOnInit(): void {
@@ -17,6 +17,9 @@ export class LeftNavComponent implements OnInit {
       response => {
         
         this.collections = response as Collection[];
+        this.collections.forEach(collection => {
+          this.expandCollapseArray.push(false);
+        });
         console.log('Response = ', this.collections);
       }
     )
