@@ -23,25 +23,30 @@
           </td>
           <td class="name-column">{{ collection.name }}</td>
           <td class="count-column">{{ collection.count }}</td>
-          <td></td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </td>
           <td class="action-column">
-            <div class="icon-container">
-              <svg class="icon">
+            <div class="icon-btn">
+              <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-edit"></use>
               </svg>
-              <div class="tooltip-text">Edit</div>
+              <div class="icon-btn__text">Edit</div>
             </div>
-            <div class="icon-container">
-              <svg class="icon">
+            <div class="icon-btn">
+              <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-share"></use>
               </svg>
-              <div class="tooltip-text">Share</div>
+              <div class="icon-btn__text">Share</div>
             </div>
-            <div class="icon-container">
-              <svg class="icon">
+            <div class="icon-btn">
+              <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-delete"></use>
               </svg>
-              <div class="tooltip-text">Delete</div>
+              <div class="icon-btn__text">Delete</div>
             </div>
           </td>
         </tr>
@@ -50,25 +55,30 @@
             <td></td>
             <td style="padding-left: 20px">{{ child.name }}</td>
             <td>{{ child.count }}</td>
-            <td></td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+            </td>
             <td class="action-column">
-              <div class="icon-container">
-                <svg class="icon">
+              <div class="icon-btn">
+                <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-edit"></use>
                 </svg>
-                <div class="tooltip-text">Edit</div>
+                <div class="icon-btn__text">Edit</div>
               </div>
-              <div class="icon-container">
-                <svg class="icon">
+              <div class="icon-btn">
+                <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-share"></use>
                 </svg>
-                <div class="tooltip-text">Share</div>
+                <div class="icon-btn__text">Share</div>
               </div>
-              <div class="icon-container">
-                <svg class="icon">
+              <div class="icon-btn">
+                <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-delete"></use>
                 </svg>
-                <div class="tooltip-text">Delete</div>
+                <div class="icon-btn__text">Delete</div>
               </div>
             </td>
           </tr>

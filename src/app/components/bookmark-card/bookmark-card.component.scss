@@ -93,48 +93,9 @@
         z-index: 2;
         display: none;
         top: 15px;
-        padding-left: 30px;
-        
-
-        .action {
-            padding: 10px;
-            margin-right: 2px;
-            border-radius: 50%;
-            cursor: pointer;
-            position: relative;
-        }
-        .tooltip-text {
-            visibility: hidden;
-            position: absolute;
-            padding: 5px;
-            color: white;
-            border-radius: 5px;
-            font-size: 13px;
-            background-color: rgba(0,0,0,0.7);
-            // top: 50%;
-            left: 50%;
-            top: 105%;
-            transform:  translateX(-50%);
-        }
-
-        .action:hover {
-            background-color: rgb(230, 230, 230);
-
-            svg {
-                opacity: 80%;
-            }
-            .tooltip-text {
-                visibility: visible;
-            }
-        }
+        padding-left: 30px;    
     }
 
-
-    &__icon {
-        width: 20px;
-        height: 20px;
-        opacity: 56%;
-    }
 }
 
 .bookmark-card.active{
@@ -144,7 +105,7 @@
 
 .bookmark-card.active .bookmark-card__action {
     background-color: #c2dbff;
-    .action:hover {
+    .icon-btn:hover {
         background-color: #d5e7ff; 
     }
 }
