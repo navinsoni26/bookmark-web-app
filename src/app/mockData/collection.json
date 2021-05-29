@@ -11,7 +11,7 @@
                 "name": "Jira",
                 "count": 12,
                 "order": 2,
-                "show": true
+                "show": false
             },
             {
                 "id": "12",

@@ -1,21 +1,33 @@
-
+@import '../../../variables';
+li{
+    list-style: none;
+}
 .primary-link {
     display: flex;
+    font-weight: 600;
     // background-color: lightpink;
     align-items: center;
     padding: 15px 20px;
     text-decoration: none;
-    color: rgba(0,0,0,0.7);
+    // color: rgba(0,0,0,0.7);
+    color: #696C80;
 
     &:hover{
-        background-color: rgb(195, 222, 248);
+        // background-color: rgb(195, 222, 248);
+        // background-color: $color-primary;
+        color: #004DE4;
+
+        .primary-link__icon {
+            fill: #004DE4;
+        }
     }
 
     
     &__icon {
-        width: 18px;
-        height: 18px;
-        fill: rgba(0,0,0,0.7);
+        width: 1.9rem;
+        height: 1.9rem;
+        // fill: rgba(0,0,0,0.7);
+        fill: #696C80;
     }
 
     span {
@@ -53,18 +65,22 @@
         flex: 1;
         padding-right: 12px;
         text-decoration: none;
-        color: rgba(0,0,0,0.9);
+        color: #818698;
+        font-weight: 600;
     }
     &__name {
         flex: 1;
     }
 
+
     &__count{
         // display: inline-block;
-        background-color: lightsalmon;
+        // background-color: #F17950;
         padding: 5px 10px;
-        font-size: 11px;
+        font-size: 1.3rem;
+        font-weight: 600;
         border-radius: 4px;
+        color: #818698;
        
     }
     &__menu {

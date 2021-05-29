@@ -1,11 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
 
-enum CheckboxState {
-  NONE,
-  FEW,
-  ALL
-};
 
 @Component({
   selector: 'app-bookmark-list',
@@ -16,10 +11,9 @@ enum CheckboxState {
 export class BookmarkListComponent implements OnInit {
 
   @Input() bookmarks: Bookmark[] = [];
-  eCheckboxState = CheckboxState;
   selectedBookmarks: any[] = [];
   isCheckedAll = false;
-  checkboxState = CheckboxState.NONE;
+  indeterminateState = false;
   constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -34,33 +28,29 @@ export class BookmarkListComponent implements OnInit {
       // remove id from selected list
       this.selectedBookmarks = this.selectedBookmarks.filter(item => item != id);
     }
-    console.log('Selected Bookmarks = ', this.selectedBookmarks);
-    if(this.selectedBookmarks.length === 0) {
-      this.checkboxState = CheckboxState.NONE;
-      this.isCheckedAll = false;
-    } else if(this.selectedBookmarks.length === this.bookmarks.length) {
-      this.checkboxState = CheckboxState.ALL;
-      this.isCheckedAll = true;
+    if(this.selectedBookmarks.length !== 0 && this.selectedBookmarks.length !== this.bookmarks.length) {
+      this.indeterminateState = true;
     } else {
-      this.checkboxState = CheckboxState.FEW;
+      this.indeterminateState = false;
+      this.isCheckedAll = this.selectedBookmarks.length === 0 ? false : true;
     }
+    
   }
 
-  onGlobalCheckboxChecked(value: any) {
-    switch(value) {
-      case CheckboxState.NONE:
-      case CheckboxState.FEW:
-        this.isCheckedAll = true;
-        this.selectedBookmarks = this.bookmarks.map(bookmark => bookmark.id);
-        this.checkboxState = CheckboxState.ALL;
-        break;
-      case CheckboxState.ALL:
-        this.isCheckedAll = false;
-        this.selectedBookmarks = [];
-        this.checkboxState = CheckboxState.NONE;
+  onGlobalCheckboxChecked() {
+    if(this.indeterminateState && this.isCheckedAll) {
+      this.isCheckedAll = false;
+      this.ref.detectChanges();
+      this.isCheckedAll = true;
+    } else {
+      this.isCheckedAll = this.indeterminateState ? true : !this.isCheckedAll;
     }
-
-    // TODO: Select All, then unselect one and again click on Select All
-    console.log('Selected Bookmarks = ', this.selectedBookmarks);
+    
+    this.indeterminateState = false;
+    if(this.isCheckedAll) {
+      this.selectedBookmarks = this.bookmarks.map(bookmark => bookmark.id);
+    } else {
+      this.selectedBookmarks = [];
+    }
   }
 }

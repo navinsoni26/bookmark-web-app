@@ -1,31 +1,37 @@
 <div class="collection-container">
-  <h2>Collections</h2>
+  <h2 class="heading-1">Collections</h2>
   <table class="table">
-    <thead>
+    <thead class="table-head">
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>No. Of Bookmarks</th>
-        <th>Show/Hide</th>
-        <th>Actions</th>
+        <th style="width: 30%;">Name</th>
+        <th >No. Of Bookmarks</th>
+        <th >Show in Collection List</th>
+        <th >Actions</th>
       </tr>
     </thead>
-    <tbody>
-      <ng-container *ngFor="let collection of collections">
+    <tbody class="table-body">
+      <ng-container *ngFor="let collection of collections; index as i">
         <tr>
-          <td class="expand-column">
-            <svg class="icon">
-              <use
-                xlink:href="assets/sprite.svg#icon-caret-down"
-                href="assets/sprite.svg#icon-caret-down"
-              ></use>
-            </svg>
+          <td class="name-column">
+            <div>
+              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="expandCollapseArray[i]">
+                <use
+                  xlink:href="assets/sprite.svg#icon-caret-down"
+                ></use>
+              </svg>
+              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="!expandCollapseArray[i]">
+                <use
+                  xlink:href="assets/sprite.svg#icon-caret-right"
+                ></use>
+              </svg>
+              <span>{{ collection.name }}</span>
+            </div>
+            
           </td>
-          <td class="name-column">{{ collection.name }}</td>
           <td class="count-column">{{ collection.count }}</td>
           <td>
             <label class="switch">
-              <input type="checkbox" checked>
+              <input type="checkbox" [checked]="collection.show" (change)="onParentSwitchChange(collection)"/>
               <span class="slider round"></span>
             </label>
           </td>
@@ -51,13 +57,12 @@
           </td>
         </tr>
         <ng-container *ngIf="collection.children.length > 0">
-          <tr *ngFor="let child of collection.children">
-            <td></td>
-            <td style="padding-left: 20px">{{ child.name }}</td>
+          <tr *ngFor="let child of collection.children" style="background-color: #f0f0f0;" [ngStyle]="{'display' : expandCollapseArray[i] ? '' : 'none'}">
+            <td class="name-column--child">{{ child.name }}</td>
             <td>{{ child.count }}</td>
             <td>
               <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" [checked]="child.show" (change)="onChildSwitchChange(child)" />
                 <span class="slider round"></span>
               </label>
             </td>

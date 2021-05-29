@@ -1,33 +1,68 @@
 <div class="bookmarks">
-    <div class="bookmarks__header">
-        <h3>Collection Name</h3>
+  <div class="bookmarks__header">
+    <input
+      type="checkbox"
+      name="globalCheckbox"
+      id="globalCheckbox"
+      class="checkbox"
+      [indeterminate]="indeterminateState"
+      [checked] = "isCheckedAll"
+      (change)="onGlobalCheckboxChecked()"
+    />
+    <h2 class="heading-2">Personal</h2>
+    <div class="bookmarks__header-actions" >
+        <div class="icon-btn">
+            <svg class="icon-btn__icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-share"
+                href="assets/sprite.svg#icon-share"
+              ></use>
+            </svg>
+            <div class="icon-btn__text">
+              Share
+            </div>
+          </div>
+          <div class="icon-btn">
+            <svg class="icon-btn__icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-caret-down"
+                href="assets/sprite.svg#icon-caret-down"
+              ></use>
+            </svg>
+            <div class="icon-btn__text">
+              Delete
+            </div>
+          </div>
+         
+          <div class="icon-btn">
+            <svg class="icon-btn__icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-tag"
+                href="assets/sprite.svg#icon-tag"
+              ></use>
+            </svg>
+            <div class="icon-btn__text">
+              Copy
+            </div>
+          </div>
+          <div class="icon-btn">
+            <svg class="icon-btn__icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-collections_bookmark"
+                href="assets/sprite.svg#icon-collections_bookmark"
+              ></use>
+            </svg>
+            <div class="icon-btn__text">
+              Favorite
+            </div>
+          </div>
     </div>
-    <div>
-        <svg class="icon" *ngIf="checkboxState === eCheckboxState.NONE" (click)="onGlobalCheckboxChecked(eCheckboxState.NONE)">
-            <use 
-            xlink:href="assets/sprite.svg#icon-check_box_outline_blank" 
-            href="assets/sprite.svg#icon-check_box_outline_blank">
-            </use>
-        </svg>
-        <svg class="icon" *ngIf="checkboxState === eCheckboxState.FEW" (click)="onGlobalCheckboxChecked(eCheckboxState.FEW)"> 
-           
-            <use 
-            xlink:href="assets/sprite.svg#icon-indeterminate_check_box" 
-            href="assets/sprite.svg#icon-indeterminate_check_box">
-            </use> 
-        </svg>
-        <svg class="icon" *ngIf="checkboxState === eCheckboxState.ALL" (click)="onGlobalCheckboxChecked(eCheckboxState.ALL)">
-            <use 
-            xlink:href="assets/sprite.svg#icon-check_box" 
-            href="assets/sprite.svg#icon-check_box">
-            </use>
-        </svg>
-    </div>
-    <ng-container *ngFor="let bookmark of bookmarks">
-        <app-bookmark-card [bookmark]="bookmark" 
-        [isChecked] = "isCheckedAll"
-        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"></app-bookmark-card>
-        
-    </ng-container>
-    
+  </div>
+  <ng-container *ngFor="let bookmark of bookmarks">
+    <app-bookmark-card
+      [bookmark]="bookmark"
+      [isChecked]="isCheckedAll"
+      (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
+    ></app-bookmark-card>
+  </ng-container>
 </div>

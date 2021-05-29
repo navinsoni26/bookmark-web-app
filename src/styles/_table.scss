@@ -1,0 +1,44 @@
+@import '../variables';
+.table {
+    border-collapse: collapse;
+    background-color: $color-bg-light ;
+    width: 100%;
+    border-radius: 1rem;
+}
+.table-head {
+    background-color: $color-bg-dark;
+    color: $color-text-on-dark;
+    
+
+    th {
+        padding: 1.2rem 2rem;
+        text-align: left;
+        font-weight: 700;
+        font-size: 1.6rem;
+        text-align: center;
+       
+    }
+    input[type="checkbox"] {
+        transform: scale(1.6);
+    }
+    th:first-child {
+        border-top-left-radius: 1rem;
+    }
+    th:last-child {
+        border-top-right-radius: 1rem;
+    }
+}
+
+.table-body {
+    td {
+        padding: .6rem 2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $color-font-primary;
+        text-align: center;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.4);
+    }
+}

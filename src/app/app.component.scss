@@ -1,22 +1,29 @@
+@import "../variables";
+
 .left-nav {
     grid-area: left-nav;
+    background-color: $color-bg-main;
 }
 
 .header {
     grid-area: header;
-    background-color: green;
+    // background-color: green;
 }
 
 .main {
     grid-area: main;
-    background-color: white;
-    padding: 10px 20px;
+    background-color: $color-secondary;
+    padding: 2rem 4rem;
+    // padding: 10px 20px;
 }
 
 .container {
+    
+    width: 100%;
+    margin: 0 auto;
     height: 100vh;
     display: grid;
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: 18% 82%;
     grid-template-rows:  70px 1fr;
     grid-template-areas: 
         "left-nav header"

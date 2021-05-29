@@ -1,5 +1,29 @@
+@import './../../../variables';
 .icon {
     width: 20px;
     height: 20px;
     fill: rgb(63, 61, 61);
 }
+input[type="checkbox"] {
+    transform: scale(1.6);
+    // margin-right: 2rem;
+}
+.bookmarks{
+
+    &__header {
+        border-bottom: 1px solid $color-hr-line-dark;
+        padding: 1rem .5rem;
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        column-gap: 2rem;
+        align-items: center;
+    }
+
+    &__header-actions {
+        display: flex; 
+        padding-left: 6rem;
+    }
+}
+
+.checkbox {}
+

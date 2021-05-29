@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
-import { Collection } from 'src/app/models/collection';
+import { CheckboxState, Collection } from 'src/app/models/collection';
 import { TestService } from 'src/app/services/test.service';
 
 @Component({
@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
     this.service.getCollections().subscribe(
       res => {
         this.collectionList = res as Collection[];
+        // this.collectionList.forEach(collection => collection.checked = true);
       }
     );
   }

@@ -5,6 +5,8 @@ export class Collection {
     order: number;
     show: boolean;
     children: Collection[];
+    checked?: boolean;
+    checkboxState?: CheckboxState;
 
     constructor() {
         this.name = '';
@@ -13,5 +15,12 @@ export class Collection {
         this.order = 0;
         this.show = true;
         this.children = [];
+        this.checked = true;
     }
+}
+
+export enum CheckboxState {
+    UNCHECKED,
+    INDETERMINATE,
+    CHECKED
 }
