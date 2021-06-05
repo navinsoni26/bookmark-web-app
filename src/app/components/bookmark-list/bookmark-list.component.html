@@ -10,50 +10,47 @@
       (change)="onGlobalCheckboxChecked()"
     />
     <h2 class="heading-2">Personal</h2>
-    <div class="bookmarks__header-actions" >
+    <div class="bookmarks__header-actions" [ngStyle]="{'display': selectedBookmarks.length > 0 ? '' : 'none'}">
+        <div class="bookmarks__header-count">{{ selectedBookmarks.length}} selected</div>
         <div class="icon-btn">
             <svg class="icon-btn__icon">
               <use
-                xlink:href="assets/sprite.svg#icon-share"
-                href="assets/sprite.svg#icon-share"
-              ></use>
-            </svg>
-            <div class="icon-btn__text">
-              Share
-            </div>
-          </div>
-          <div class="icon-btn">
-            <svg class="icon-btn__icon">
-              <use
-                xlink:href="assets/sprite.svg#icon-caret-down"
-                href="assets/sprite.svg#icon-caret-down"
+                xlink:href="assets/sprite.svg#icon-delete"
               ></use>
             </svg>
             <div class="icon-btn__text">
               Delete
             </div>
           </div>
+          <div class="icon-btn">
+            <svg class="icon-btn__icon">
+              <use
+                xlink:href="assets/sprite.svg#icon-move"
+              ></use>
+            </svg>
+            <div class="icon-btn__text">
+              Move
+            </div>
+          </div>
          
           <div class="icon-btn">
             <svg class="icon-btn__icon">
               <use
-                xlink:href="assets/sprite.svg#icon-tag"
-                href="assets/sprite.svg#icon-tag"
+                xlink:href="assets/sprite.svg#icon-link-1"
               ></use>
             </svg>
             <div class="icon-btn__text">
-              Copy
+              Shareable Link
             </div>
           </div>
-          <div class="icon-btn">
-            <svg class="icon-btn__icon">
+          <div class="icon-btn" (click)="onDisplayContextMenu($event)" [ngClass]="{'active': contextMenu && contextMenu.show ? true : false}">
+            <svg class="icon-btn__icon" style="width: 2rem; height: 2rem;">
               <use
-                xlink:href="assets/sprite.svg#icon-collections_bookmark"
-                href="assets/sprite.svg#icon-collections_bookmark"
+                xlink:href="assets/sprite.svg#icon-dots-three-vertical"
               ></use>
             </svg>
             <div class="icon-btn__text">
-              Favorite
+              More
             </div>
           </div>
     </div>
@@ -65,4 +62,7 @@
       (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
     ></app-bookmark-card>
   </ng-container>
+
 </div>
+<app-context-menu [menuItems] = "contextMenuItems" (onMenuItemClicked) = "onContextMenuClick($event)"></app-context-menu>
+

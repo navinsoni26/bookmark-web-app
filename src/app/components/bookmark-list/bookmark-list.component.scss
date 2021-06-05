@@ -21,7 +21,14 @@ input[type="checkbox"] {
 
     &__header-actions {
         display: flex; 
+        align-items: center;
         padding-left: 6rem;
+    }
+
+    &__header-count {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-right: 2rem;
     }
 }
 

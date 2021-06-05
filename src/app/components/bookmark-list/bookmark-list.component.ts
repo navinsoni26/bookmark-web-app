@@ -1,5 +1,7 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
+import { ContextMenuItem } from 'src/app/models/context-menu-items';
+import { ContextMenuComponent } from '../context-menu/context-menu.component';
 
 
 @Component({
@@ -10,10 +12,16 @@ import { Bookmark } from 'src/app/models/bookmark';
 
 export class BookmarkListComponent implements OnInit {
 
+  @ViewChild(ContextMenuComponent) contextMenu?: ContextMenuComponent;
   @Input() bookmarks: Bookmark[] = [];
   selectedBookmarks: any[] = [];
   isCheckedAll = false;
   indeterminateState = false;
+  isActive = false;
+  contextMenuItems: ContextMenuItem[] = [
+    { label: 'Add Tags', action: 'ADD_TAGS'},
+    { label: 'Add To Favorite', action: 'ADD_TO_FAV'}
+  ];
   constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -36,7 +44,20 @@ export class BookmarkListComponent implements OnInit {
     }
     
   }
-
+  onDisplayContextMenu(event: any) {
+    console.log('ICON CLICKED, event = ', event);
+    const targetWidth = event.target.clientWidth;
+    const targetHeight = event.target.clientHeight;
+    console.log(targetWidth, targetHeight);
+    const offsetX = event.offsetX;
+    const offsetY = event.offsetY;
+    const clientX = event.clientX;
+    const clientY = event.clientY;
+    const x = clientX - offsetX + 10;
+    const y = clientY - offsetY + 30;
+    this.contextMenu?.showContextMenu(event, x, y);
+    // this.isActive = this.contextMenu && this.contextMenu.show ? true : false;
+  }
   onGlobalCheckboxChecked() {
     if(this.indeterminateState && this.isCheckedAll) {
       this.isCheckedAll = false;
@@ -52,5 +73,9 @@ export class BookmarkListComponent implements OnInit {
     } else {
       this.selectedBookmarks = [];
     }
+  }
+
+  onContextMenuClick(action: string) {
+    console.log('MENU with action = ', action);
   }
 }

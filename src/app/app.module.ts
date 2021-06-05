@@ -12,6 +12,7 @@ import { BookmarkListComponent } from './components/bookmark-list/bookmark-list.
 import { BookmarkCardComponent } from './components/bookmark-card/bookmark-card.component';
 import { CollectionListComponent } from './components/collection-list/collection-list.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { ContextMenuComponent } from './components/context-menu/context-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     BookmarkListComponent,
     BookmarkCardComponent,
     CollectionListComponent,
-    DialogComponent
+    DialogComponent,
+    ContextMenuComponent
   ],
   imports: [
     BrowserModule,

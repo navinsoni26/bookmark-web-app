@@ -44,7 +44,7 @@ body {
   &__text {
     visibility: hidden;
     position: absolute;
-    padding: .4rem 1.4rem;
+    padding: .3rem .8rem;
     color: white;
     border-radius: .6rem;
     // line-height: 1.4;
@@ -57,9 +57,12 @@ body {
     top: 105%;
     transform: translateX(-50%);
     z-index: 10;
+    user-select: none;
   }
 }
-
+.icon-btn.active {
+  background-color: $color-icon-hover;
+}
 .icon-btn:hover {
   background-color: $color-icon-hover;
 

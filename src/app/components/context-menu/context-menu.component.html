@@ -1,0 +1,5 @@
+<div class="context-menu" [ngStyle]="{'left.px': x, 'top.px': y, 'display': show ? '' : 'none'}" (click)="$event.stopPropagation();">
+    <ul class="context-menu__list">
+        <li *ngFor="let item of menuItems" class="context-menu__item" (click)="onItemClick(item)">{{item.label}}</li>
+    </ul>  
+</div>
