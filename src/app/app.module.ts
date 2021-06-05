@@ -13,6 +13,8 @@ import { BookmarkCardComponent } from './components/bookmark-card/bookmark-card.
 import { CollectionListComponent } from './components/collection-list/collection-list.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
+import { CollectionListDialogComponent } from './components/collection-list-dialog/collection-list-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { ContextMenuComponent } from './components/context-menu/context-menu.com
     BookmarkCardComponent,
     CollectionListComponent,
     DialogComponent,
-    ContextMenuComponent
+    ContextMenuComponent,
+    CollectionListDialogComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

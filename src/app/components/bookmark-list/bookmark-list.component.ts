@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
+import { Collection } from 'src/app/models/collection';
 import { ContextMenuItem } from 'src/app/models/context-menu-items';
 import { ContextMenuComponent } from '../context-menu/context-menu.component';
 
@@ -14,6 +15,7 @@ export class BookmarkListComponent implements OnInit {
 
   @ViewChild(ContextMenuComponent) contextMenu?: ContextMenuComponent;
   @Input() bookmarks: Bookmark[] = [];
+  @Input() collections: Collection[] = [];
   selectedBookmarks: any[] = [];
   isCheckedAll = false;
   indeterminateState = false;

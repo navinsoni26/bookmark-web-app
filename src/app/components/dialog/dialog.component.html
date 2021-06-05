@@ -1,6 +1,10 @@
 <div class="dialog" >
     <div class="dialog__container">
-        <button (click)="closeDialog()">Close</button>
+        <svg class="dialog__close-icon" (click)="closeDialog()">
+            <use 
+            xlink:href="assets/sprite.svg#icon-clear" >
+            </use>
+        </svg>
         <ng-content></ng-content>
     </div>
 </div>

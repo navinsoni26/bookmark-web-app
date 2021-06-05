@@ -1,0 +1,24 @@
+<app-dialog>
+    <div class="collection-list-dialog">
+        <div class="search-box mb">
+            <input type="text" class="search-box__input" [formControl]="searchInput">
+            <div class="search-box__icon-container">
+                <svg class="search-box__icon" >
+                    <use 
+                    xlink:href="assets/sprite.svg#icon-search" >
+                    </use>
+                </svg>
+            </div>
+            
+        </div>
+        
+        <ul >
+            <li *ngFor = "let item of list">{{item.name}}</li>
+        </ul>
+        <hr>
+        <ul *ngIf="displayCreateNew">
+            <li>Create New</li>
+        </ul>
+    </div>
+    
+</app-dialog>
