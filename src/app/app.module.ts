@@ -15,6 +15,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
 import { CollectionListDialogComponent } from './components/collection-list-dialog/collection-list-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CollectionListComponent,
     DialogComponent,
     ContextMenuComponent,
-    CollectionListDialogComponent
+    CollectionListDialogComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

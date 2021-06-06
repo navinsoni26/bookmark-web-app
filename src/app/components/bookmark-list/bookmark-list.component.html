@@ -1,5 +1,5 @@
 <div class="bookmarks">
-  <div class="bookmarks__header">
+  <div class="bookmarks__header ">
     <input
       type="checkbox"
       name="globalCheckbox"
@@ -10,7 +10,7 @@
       (change)="onGlobalCheckboxChecked()"
     />
     <h2 class="heading-2">Personal</h2>
-    <div class="bookmarks__header-actions" [ngStyle]="{'display': selectedBookmarks.length > 0 ? '' : 'none'}">
+    <div class="bookmarks__header-actions" [ngStyle]="{'visibility': selectedBookmarks.length > 0 ? 'visible' : 'hidden'}">
         <div class="bookmarks__header-count">{{ selectedBookmarks.length}} selected</div>
         <div class="icon-btn">
             <svg class="icon-btn__icon">
@@ -54,7 +54,9 @@
             </div>
           </div>
     </div>
+    <button type="button" class="btn-outline" (click)="onShowFilterByTag()">Filter by tags</button>
   </div>
+  <div class="divider divider--dark"></div>
   <ng-container *ngFor="let bookmark of bookmarks">
     <app-bookmark-card
       [bookmark]="bookmark"
@@ -65,4 +67,59 @@
 
 </div>
 <app-context-menu [menuItems] = "contextMenuItems" (onMenuItemClicked) = "onContextMenuClick($event)"></app-context-menu>
-<app-collection-list-dialog [collections]="collections"></app-collection-list-dialog>
+<!-- <app-collection-list-dialog [collections]="collections"></app-collection-list-dialog> -->
+<div class="tag-filter-panel" [ngStyle]="{'right': showFilterByTagSection ? '0' : '-100%'}">
+  <div class="tag-filter-panel__header mb">
+    <div class="tag-filter-panel__header-text">
+      <h2>Filter by tags</h2>
+      <p class="info-text-grey">Select tags to filter bookmarks</p>
+    </div>
+    <div class="close-btn" (click)="onCloseFilterByTag()">
+      <svg >
+        <use 
+        xlink:href="assets/sprite.svg#icon-clear" >
+        </use>
+      </svg>
+    </div>
+    
+  </div>
+  <div class="tags-wrapper">
+    <div class="tags">
+      <h3 class="tags__label">A</h3>
+      <div class="tag__items">
+        <span class="tag__item">about</span>
+        <span class="tag__item">accordion</span>
+        <span class="tag__item">account</span>
+        <span class="tag__item">activity</span>
+      </div>
+    </div>
+    <div class="tags">
+      <h3 class="tags__label">B</h3>
+      <div class="tag__items">
+        <span class="tag__item">background</span>
+        <span class="tag__item">badge</span>
+        <span class="tag__item">banking</span>
+        <span class="tag__item">banner</span>
+        <span class="tag__item">best</span>
+        <span class="tag__item">bill</span>
+        <span class="tag__item">billing</span>
+        <span class="tag__item">blog</span>
+        <span class="tag__item">bookmark</span>
+      </div>
+    </div>
+    <div class="tags">
+      <h3 class="tags__label">C</h3>
+      <div class="tag__items">
+        <span class="tag__item">calculator</span>
+        <span class="tag__item">calendar</span>
+        <span class="tag__item">call</span>
+        <span class="tag__item">car</span>
+        <span class="tag__item">category</span>
+        <span class="tag__item">chart</span>
+        <span class="tag__item">chat</span>
+        <span class="tag__item">color picker</span>
+        <span class="tag__item">coming soon</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,6 +20,8 @@ export class BookmarkListComponent implements OnInit {
   isCheckedAll = false;
   indeterminateState = false;
   isActive = false;
+  showFilterByTagSection = false;
+
   contextMenuItems: ContextMenuItem[] = [
     { label: 'Add Tags', action: 'ADD_TAGS'},
     { label: 'Add To Favorite', action: 'ADD_TO_FAV'}
@@ -79,5 +81,13 @@ export class BookmarkListComponent implements OnInit {
 
   onContextMenuClick(action: string) {
     console.log('MENU with action = ', action);
+  }
+
+  onShowFilterByTag() {
+    this.showFilterByTagSection = true;
+  }
+
+  onCloseFilterByTag() {
+    this.showFilterByTagSection = false;
   }
 }

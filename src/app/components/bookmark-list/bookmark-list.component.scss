@@ -11,10 +11,9 @@ input[type="checkbox"] {
 .bookmarks{
 
     &__header {
-        border-bottom: 1px solid $color-hr-line-dark;
         padding: 1rem .5rem;
         display: grid;
-        grid-template-columns: auto auto 1fr;
+        grid-template-columns: auto auto 1fr auto;
         column-gap: 2rem;
         align-items: center;
     }
@@ -34,3 +33,93 @@ input[type="checkbox"] {
 
 .checkbox {}
 
+.tag-filter-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 450px;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: -8px 9px 25px 0 rgb(132 128 177 / 28%);
+    padding: 25px;
+    transition: all .5s ease-in-out;
+    &__header {
+        display: flex;
+        font-family: 'Mulish', sans-serif;
+        align-items: center;
+    }
+    &__header-text {
+        flex: 1;
+    }
+    &__header h2 {
+        font-size: 2.2rem;
+        color: #242E4C;
+        font-weight: 600;
+        font-family: 'Mulish', sans-serif;
+    }
+
+    .info-text-grey {
+        font-size: 14px;
+        color: #7D7A9E;
+        // margin-top: 5px;
+    }
+
+    .close-btn {
+        background-color: $color-icon-hover;
+        display: flex;
+        align-items: center;
+        padding: .6rem;
+        border-radius: 100%;
+        cursor: pointer;
+
+        svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            fill: $color-icon-inactive;
+        }
+    }
+}
+
+.tags-wrapper {
+    overflow-y: hidden;
+}
+.tags {
+    margin-bottom: 1.5rem;
+    &__label {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #7D7A9E;
+    }
+}
+
+.tag {
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        font-family: 'Mulish', sans-serif;
+            margin-right: 1.4rem;
+            margin-bottom: 1.4rem;
+            padding: .4rem 2.1rem;
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: .2px;
+            border-radius: .6rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: #EBF2FF;
+    color: #4c7dca;
+            transition: all 0.3s ease-in-out;
+        
+    }
+
+    &__item:hover {
+        border: 2px solid #4E91FE;
+        color: #2663C7;
+    }
+}
