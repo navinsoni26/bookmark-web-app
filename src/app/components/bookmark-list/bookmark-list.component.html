@@ -1,60 +1,57 @@
 <div class="bookmarks">
-  <div class="bookmarks__header ">
+  <div class="bookmarks__header">
     <input
       type="checkbox"
       name="globalCheckbox"
       id="globalCheckbox"
       class="checkbox"
       [indeterminate]="indeterminateState"
-      [checked] = "isCheckedAll"
+      [checked]="isCheckedAll"
       (change)="onGlobalCheckboxChecked()"
     />
     <h2 class="heading-2">Personal</h2>
-    <div class="bookmarks__header-actions" [ngStyle]="{'visibility': selectedBookmarks.length > 0 ? 'visible' : 'hidden'}">
-        <div class="bookmarks__header-count">{{ selectedBookmarks.length}} selected</div>
-        <div class="icon-btn">
-            <svg class="icon-btn__icon">
-              <use
-                xlink:href="assets/sprite.svg#icon-delete"
-              ></use>
-            </svg>
-            <div class="icon-btn__text">
-              Delete
-            </div>
-          </div>
-          <div class="icon-btn">
-            <svg class="icon-btn__icon">
-              <use
-                xlink:href="assets/sprite.svg#icon-move"
-              ></use>
-            </svg>
-            <div class="icon-btn__text">
-              Move
-            </div>
-          </div>
-         
-          <div class="icon-btn">
-            <svg class="icon-btn__icon">
-              <use
-                xlink:href="assets/sprite.svg#icon-link-1"
-              ></use>
-            </svg>
-            <div class="icon-btn__text">
-              Shareable Link
-            </div>
-          </div>
-          <div class="icon-btn" (click)="onDisplayContextMenu($event)" [ngClass]="{'active': contextMenu && contextMenu.show ? true : false}">
-            <svg class="icon-btn__icon" style="width: 2rem; height: 2rem;">
-              <use
-                xlink:href="assets/sprite.svg#icon-dots-three-vertical"
-              ></use>
-            </svg>
-            <div class="icon-btn__text">
-              More
-            </div>
-          </div>
+    <div
+      class="bookmarks__header-actions"
+      [ngStyle]="{
+        visibility: selectedBookmarks.length > 0 ? 'visible' : 'hidden'
+      }"
+    >
+      <div class="bookmarks__header-count">
+        {{ selectedBookmarks.length }} selected
+      </div>
+      <div class="icon-btn">
+        <svg class="icon-btn__icon">
+          <use xlink:href="assets/sprite.svg#icon-delete"></use>
+        </svg>
+        <div class="icon-btn__text">Delete</div>
+      </div>
+      <div class="icon-btn">
+        <svg class="icon-btn__icon">
+          <use xlink:href="assets/sprite.svg#icon-move"></use>
+        </svg>
+        <div class="icon-btn__text">Move</div>
+      </div>
+
+      <div class="icon-btn">
+        <svg class="icon-btn__icon">
+          <use xlink:href="assets/sprite.svg#icon-link-1"></use>
+        </svg>
+        <div class="icon-btn__text">Shareable Link</div>
+      </div>
+      <div
+        class="icon-btn"
+        (click)="onDisplayContextMenu($event)"
+        [ngClass]="{ active: contextMenu && contextMenu.show ? true : false }"
+      >
+        <svg class="icon-btn__icon" style="width: 2rem; height: 2rem">
+          <use xlink:href="assets/sprite.svg#icon-dots-three-vertical"></use>
+        </svg>
+        <div class="icon-btn__text">More</div>
+      </div>
     </div>
-    <button type="button" class="btn-outline" (click)="onShowFilterByTag()">Filter by tags</button>
+    <button type="button" class="btn-outline" (click)="onShowFilterByTag()">
+      Filter by tags
+    </button>
   </div>
   <div class="divider divider--dark"></div>
   <ng-container *ngFor="let bookmark of bookmarks">
@@ -64,74 +61,73 @@
       (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
     ></app-bookmark-card>
   </ng-container>
-
 </div>
-<app-context-menu [menuItems] = "contextMenuItems" (onMenuItemClicked) = "onContextMenuClick($event)"></app-context-menu>
+<app-context-menu
+  [menuItems]="contextMenuItems"
+  (onMenuItemClicked)="onContextMenuClick($event)"
+></app-context-menu>
 <!-- <app-collection-list-dialog [collections]="collections"></app-collection-list-dialog> -->
-<div class="tag-filter-panel" [ngStyle]="{'right': showFilterByTagSection ? '0' : '-100%'}">
+<div
+  class="tag-filter-panel"
+  [ngStyle]="{ right: showFilterByTagSection ? '0' : '-100%' }"
+>
   <div class="tag-filter-panel__header mb">
     <div class="tag-filter-panel__header-text">
       <h2>Filter by tags</h2>
       <p class="info-text-grey">Select tags to filter bookmarks</p>
     </div>
     <div class="close-btn" (click)="onCloseFilterByTag()">
-      <svg >
-        <use 
-        xlink:href="assets/sprite.svg#icon-clear" >
-        </use>
+      <svg>
+        <use xlink:href="assets/sprite.svg#icon-clear"></use>
       </svg>
     </div>
-    
   </div>
   <div class="search">
-        <div class="search-box mb">
-            <input type="text" class="search-box__input">
-            <div class="search-box__icon-container">
-                <svg class="search-box__icon" >
-                    <use 
-                    xlink:href="assets/sprite.svg#icon-search" >
-                    </use>
-                </svg>
-            </div>
-            
-        </div>
+    <div class="search-box mb">
+      <input type="text" class="search-box__input" />
+      <div class="search-box__icon-container">
+        <svg class="search-box__icon">
+          <use xlink:href="assets/sprite.svg#icon-search"></use>
+        </svg>
+      </div>
     </div>
+  </div>
   <div class="tags-wrapper">
     <div class="tags">
       <h3 class="tags__label">A</h3>
       <div class="tag__items">
-        <span class="tag__item">about</span>
-        <span class="tag__item">accordion</span>
-        <span class="tag__item">account</span>
-        <span class="tag__item">activity</span>
+        <div class="chip chip--blue">about</div>
+        <div class="chip chip--blue">accordion</div>
+        <div class="chip chip--blue">account</div>
+        <div class="chip chip--blue">activity</div>
       </div>
     </div>
     <div class="tags">
       <h3 class="tags__label">B</h3>
       <div class="tag__items">
-        <span class="tag__item">background</span>
-        <span class="tag__item">badge</span>
-        <span class="tag__item">banking</span>
-        <span class="tag__item">banner</span>
-        <span class="tag__item">best</span>
-        <span class="tag__item">bill</span>
-        <span class="tag__item">billing</span>
-        <span class="tag__item">blog</span>
-        <span class="tag__item">bookmark</span>
+        <div class="chip chip--blue">background</div>
+        <div class="chip chip--blue">badge</div>
+        <div class="chip chip--blue">banking</div>
+        <div class="chip chip--blue">banner</div>
+        <div class="chip chip--blue">best</div>
+        <div class="chip chip--blue">bill</div>
+        <div class="chip chip--blue">billing</div>
+        <div class="chip chip--blue">blog</div>
+        <div class="chip chip--blue">bookmark</div>
       </div>
     </div>
     <div class="tags">
       <h3 class="tags__label">C</h3>
       <div class="tag__items">
-        <span class="tag__item">calculator</span>
-        <span class="tag__item">calendar</span>
-        <span class="tag__item">call</span>
-        <span class="tag__item">car</span>
-        <span class="tag__item">category</span>
-        <span class="tag__item">chart</span>
-        <span class="tag__item">chat</span>
-        <span class="tag__item">color picker</span>
-        <span class="tag__item">coming soon</span>
+        <div class="chip chip--blue active">calculator</div>
+        <div class="chip chip--blue">calendar</div>
+        <div class="chip chip--blue">call</div>
+        <div class="chip chip--blue">car</div>
+        <div class="chip chip--blue">category</div>
+        <div class="chip chip--blue">chart</div>
+        <div class="chip chip--blue">chat</div>
+        <div class="chip chip--blue">color picker</div>
+        <div class="chip chip--blue">coming soon</div>
       </div>
     </div>
   </div>

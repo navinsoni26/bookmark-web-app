@@ -1,21 +1,20 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogComponent } from './dialog.component';
+import { RecentlySharedComponent } from './recently-shared.component';
 
-describe('DialogComponent', () => {
-  let component: DialogComponent;
-  let fixture: ComponentFixture<DialogComponent>;
+describe('RecentlySharedComponent', () => {
+  let component: RecentlySharedComponent;
+  let fixture: ComponentFixture<RecentlySharedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogComponent ]
+      declarations: [ RecentlySharedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogComponent);
+    fixture = TestBed.createComponent(RecentlySharedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -16,6 +16,8 @@ import { ContextMenuComponent } from './components/context-menu/context-menu.com
 import { CollectionListDialogComponent } from './components/collection-list-dialog/collection-list-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { TagListComponent } from './components/tag-list/tag-list.component';
+import { RecentlySharedComponent } from './components/recently-shared/recently-shared.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SearchResultComponent } from './components/search-result/search-result.
     DialogComponent,
     ContextMenuComponent,
     CollectionListDialogComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    TagListComponent,
+    RecentlySharedComponent
   ],
   imports: [
     BrowserModule,

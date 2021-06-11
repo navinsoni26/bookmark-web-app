@@ -1,4 +1,4 @@
-<div class="bookmark-card" [ngClass]="{'active' : isChecked}">
+<div class="bookmark-card" [ngClass]="{ active: isChecked }">
   <div class="bookmark-card__select">
     <input
       type="checkbox"
@@ -17,29 +17,40 @@
     <div class="bookmark-card__notes">{{ bookmark.notes }}</div>
     <div class="bookmark-card__additional-info">
       <div class="bookmark-card__date">{{ bookmark.createdAt }}</div>
-      <span> 
-        
-      </span>
+      <span> </span>
       <div class="bookmark-card__tags">
-        <div class="bookmark-card__tag">
-        <svg >
-        <use
-          xlink:href="assets/sprite.svg#icon-tag"
-          href="assets/sprite.svg#icon-tag"
-        ></use>
-        Ï</svg> 
-      Google Play
-      </div>
-        <div class="bookmark-card__tag">
-        <svg >
-        <use
-          xlink:href="assets/sprite.svg#icon-tag"
-          href="assets/sprite.svg#icon-tag"
-        ></use>
-        Ï</svg> Screenshots</div>
+        <div class="chip chip--blue">
+          <svg class="chip__icon">
+            <use
+              xlink:href="assets/sprite.svg#icon-tag"
+              href="assets/sprite.svg#icon-tag"
+            ></use>
+            Ï
+          </svg>
+
+          Google Play
+          <div class="chip__icon-container">
+            <svg class="chip__icon--last">
+              <use
+                xlink:href="assets/sprite.svg#icon-clear"
+                href="assets/sprite.svg#icon-clear"
+              ></use>
+              Ï
+            </svg>
+          </div>
+        </div>
+        <div class="chip chip--blue">
+          <svg class="chip__icon chip__icon--blue">
+            <use
+              xlink:href="assets/sprite.svg#icon-tag"
+              href="assets/sprite.svg#icon-tag"
+            ></use>
+            Ï
+          </svg>
+          Screenshot
+        </div>
       </div>
     </div>
-   
   </div>
   <div class="bookmark-card__action">
     <div class="icon-btn">
@@ -49,9 +60,7 @@
           href="assets/sprite.svg#icon-share"
         ></use>
       </svg>
-      <div class="icon-btn__text">
-        Share
-      </div>
+      <div class="icon-btn__text">Share</div>
     </div>
     <div class="icon-btn">
       <svg class="icon-btn__icon">
@@ -60,11 +69,9 @@
           href="assets/sprite.svg#icon-caret-down"
         ></use>
       </svg>
-      <div class="icon-btn__text">
-        Delete
-      </div>
+      <div class="icon-btn__text">Delete</div>
     </div>
-   
+
     <div class="icon-btn">
       <svg class="icon-btn__icon">
         <use
@@ -72,9 +79,7 @@
           href="assets/sprite.svg#icon-tag"
         ></use>
       </svg>
-      <div class="icon-btn__text">
-        Copy
-      </div>
+      <div class="icon-btn__text">Copy</div>
     </div>
     <div class="icon-btn">
       <svg class="icon-btn__icon">
@@ -83,9 +88,7 @@
           href="assets/sprite.svg#icon-collections_bookmark"
         ></use>
       </svg>
-      <div class="icon-btn__text">
-        Favorite
-      </div>
+      <div class="icon-btn__text">Favorite</div>
     </div>
   </div>
 </div>

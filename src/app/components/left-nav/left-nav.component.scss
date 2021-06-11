@@ -5,32 +5,31 @@ li{
 .primary-link {
     display: flex;
     font-weight: 600;
-    // background-color: lightpink;
     align-items: center;
     padding: 15px 20px;
+    font-size: 1.5rem;
     text-decoration: none;
-    // color: rgba(0,0,0,0.7);
     color: #696C80;
+    fill: #696C80;
+
+    &.active {
+        color: #004DE4;
+        fill: #004DE4
+    }
 
     &:hover{
-        // background-color: rgb(195, 222, 248);
-        // background-color: $color-primary;
         color: #004DE4;
-
-        .primary-link__icon {
-            fill: #004DE4;
-        }
+        fill: #004DE4;
     }
 
     
     &__icon {
         width: 1.9rem;
         height: 1.9rem;
-        // fill: rgba(0,0,0,0.7);
-        fill: #696C80;
+        fill: inherit;
     }
 
-    span {
+    &__text {
         padding-left: 10px;
     }
 }
