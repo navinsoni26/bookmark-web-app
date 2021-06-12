@@ -13,6 +13,10 @@
         color: $color-font-primary;
     }
 
+    &__input:focus {
+        background-color: white;
+    }
+
     &__icon {
         width: 1.8rem;
         height: 1.8rem;

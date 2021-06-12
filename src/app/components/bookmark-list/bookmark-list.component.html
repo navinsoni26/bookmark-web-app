@@ -53,14 +53,17 @@
       Filter by tags
     </button>
   </div>
-  <div class="divider divider--dark"></div>
-  <ng-container *ngFor="let bookmark of bookmarks">
-    <app-bookmark-card
-      [bookmark]="bookmark"
-      [isChecked]="isCheckedAll"
-      (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
-    ></app-bookmark-card>
-  </ng-container>
+  <!-- <div class="divider divider--dark"></div> -->
+  <div class="content">
+    <ng-container *ngFor="let bookmark of bookmarks">
+      <app-bookmark-card
+        [bookmark]="bookmark"
+        [isChecked]="isCheckedAll"
+        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
+      ></app-bookmark-card>
+    </ng-container>
+  </div>
+  
 </div>
 <app-context-menu
   [menuItems]="contextMenuItems"

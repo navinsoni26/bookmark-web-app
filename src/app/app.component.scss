@@ -2,11 +2,12 @@
 
 .left-nav {
     grid-area: left-nav;
-    background-color: $color-bg-main;
+    background-color: white;
 }
 
 .header {
     grid-area: header;
+    background-color: $color-item-hover;
     // background-color: green;
 }
 
@@ -14,6 +15,8 @@
     grid-area: main;
     background-color: $color-secondary;
     padding: 2rem 4rem;
+    box-shadow: 3px 9px 25px 0 rgb(132 128 177 / 28%);
+    // background-color: red;
     // padding: 10px 20px;
 }
 
@@ -23,9 +26,9 @@
     margin: 0 auto;
     height: 100vh;
     display: grid;
-    grid-template-columns: 18% 82%;
-    grid-template-rows:  70px 1fr;
+    grid-template-columns: 1.5fr 8.5fr;
+    grid-template-rows:  6rem calc(100vh - 60px);
     grid-template-areas: 
-        "left-nav header"
+        "header header"
         "left-nav main";
 }
