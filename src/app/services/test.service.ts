@@ -15,4 +15,8 @@ export class TestService {
   getCollections() {
     return this.http.get('/collections');
   }
+
+  getTags() {
+    return this.http.get('/tags');
+  }
 }

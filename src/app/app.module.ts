@@ -19,6 +19,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { TagListComponent } from './components/tag-list/tag-list.component';
 import { RecentlySharedComponent } from './components/recently-shared/recently-shared.component';
 import { BookmarkFormComponent } from './components/bookmark-form/bookmark-form.component';
+import { TagInputComponent } from './components/tag-input/tag-input.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BookmarkFormComponent } from './components/bookmark-form/bookmark-form.
     SearchResultComponent,
     TagListComponent,
     RecentlySharedComponent,
-    BookmarkFormComponent
+    BookmarkFormComponent,
+    TagInputComponent
   ],
   imports: [
     BrowserModule,

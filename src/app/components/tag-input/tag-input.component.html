@@ -1,0 +1,35 @@
+<form (submit)="submit($event)">
+  <div class="tag-container">
+    <div class="tag" *ngFor="let tag of selectedTags">
+      <span>{{ tag.name }}</span>
+      <svg>
+        <use
+          xlink:href="assets/sprite.svg#icon-clear"
+          href="assets/sprite.svg#icon-clear"
+        ></use>
+        Ï
+      </svg>
+    </div>
+    <input
+      type="text"
+      name="tag"
+      id="tag"
+      [formControl]="tagInputControl"
+      autocomplete="off"
+      (keyup)="inputKeyupEvent($event)"
+    />
+    <div class="tag-list-container" *ngIf="displaySearchList">
+      <ul class="tag-list">
+        <li
+          *ngFor="let item of searchList; index as i"
+          class="tag-list-item"
+          [ngClass]="{
+            active: i === activeItemIndex
+          }"
+        >
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
