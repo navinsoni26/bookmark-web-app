@@ -1,4 +1,7 @@
-<app-bookmark-list [bookmarks]="bookmarkList" [collections]="collectionList"></app-bookmark-list>
+<!-- <select name="test" id="test">
+    <option value="test">test</option>
+</select>
+<app-bookmark-list [bookmarks]="bookmarkList" [collections]="collectionList"></app-bookmark-list> -->
 <!-- 
 <app-dialog *ngIf="showDialog" (closeDialogEvent)="showDialog = false">
     <app-collection-list [collections]="collectionList"></app-collection-list>
@@ -8,4 +11,8 @@
 <!-- <app-collection-list [collections]="collectionList"></app-collection-list> -->
 <!-- <app-search-result></app-search-result> -->
 
+
+<app-dialog>
+    <app-bookmark-form></app-bookmark-form>
+</app-dialog>
 <router-outlet></router-outlet>

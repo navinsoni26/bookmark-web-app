@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { TagListComponent } from './components/tag-list/tag-list.component';
 import { RecentlySharedComponent } from './components/recently-shared/recently-shared.component';
+import { BookmarkFormComponent } from './components/bookmark-form/bookmark-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RecentlySharedComponent } from './components/recently-shared/recently-s
     CollectionListDialogComponent,
     SearchResultComponent,
     TagListComponent,
-    RecentlySharedComponent
+    RecentlySharedComponent,
+    BookmarkFormComponent
   ],
   imports: [
     BrowserModule,

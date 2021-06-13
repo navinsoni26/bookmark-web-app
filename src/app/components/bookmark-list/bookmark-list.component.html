@@ -1,79 +1,123 @@
 <div class="bookmarks">
   <div class="bookmarks__header">
-    <input
-      type="checkbox"
-      name="globalCheckbox"
-      id="globalCheckbox"
-      class="checkbox"
-      [indeterminate]="indeterminateState"
-      [checked]="isCheckedAll"
-      (change)="onGlobalCheckboxChecked()"
-    />
-    <h2 class="heading-2">Personal</h2>
-    <div
-      class="bookmarks__header-actions"
-      [ngStyle]="{
-        visibility: selectedBookmarks.length > 0 ? 'visible' : 'hidden'
-      }"
-    >
-      <div class="bookmarks__header-count">
-        {{ selectedBookmarks.length }} selected
-      </div>
-      <div class="icon-btn">
-        <svg class="icon-btn__icon">
-          <use xlink:href="assets/sprite.svg#icon-delete"></use>
-        </svg>
-        <div class="icon-btn__text">Delete</div>
-      </div>
-      <div class="icon-btn">
-        <svg class="icon-btn__icon">
-          <use xlink:href="assets/sprite.svg#icon-move"></use>
-        </svg>
-        <div class="icon-btn__text">Move</div>
+    <div>
+      <input type="checkbox" name="globalCheckbox" id="globalCheckbox" class="checkbox"
+        [indeterminate]="indeterminateState" [checked]="isCheckedAll" (change)="onGlobalCheckboxChecked()" />
+    </div>
+    <div class="bookmarks__header-content">
+      <h2 class="heading-2">Personal</h2>
+      <div class="bookmarks__header-detail" style="display: none;">
+        <div class="chip chip--blue">
+          <svg class="chip__icon">
+            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
+            Ï
+          </svg>
+
+          Google Play
+          <div class="chip__icon-container">
+            <svg class="chip__icon--last">
+              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
+              Ï
+            </svg>
+          </div>
+        </div>
+        <div class="chip chip--blue">
+          <svg class="chip__icon">
+            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
+            Ï
+          </svg>
+
+          Google Play
+          <div class="chip__icon-container">
+            <svg class="chip__icon--last">
+              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
+              Ï
+            </svg>
+          </div>
+        </div>
+        <div class="chip chip--blue">
+          <svg class="chip__icon">
+            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
+            Ï
+          </svg>
+
+          Google Play
+          <div class="chip__icon-container">
+            <svg class="chip__icon--last">
+              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
+              Ï
+            </svg>
+          </div>
+        </div>
+        <div class="chip chip--blue">
+          <svg class="chip__icon">
+            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
+            Ï
+          </svg>
+
+          Google Play
+          <div class="chip__icon-container">
+            <svg class="chip__icon--last">
+              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
+              Ï
+            </svg>
+          </div>
+        </div>
+
       </div>
 
-      <div class="icon-btn">
-        <svg class="icon-btn__icon">
-          <use xlink:href="assets/sprite.svg#icon-link-1"></use>
-        </svg>
-        <div class="icon-btn__text">Shareable Link</div>
+      <button type="button" class="btn-outline" (click)="onShowFilterByTag()">
+        Filter by tags
+      </button>
+      <div class="bookmarks__header-actions" [ngStyle]="{
+          visibility: selectedBookmarks.length > 0 ? 'visible' : 'hidden'
+        }">
+        <div class="bookmarks__header-count">
+          {{ selectedBookmarks.length }} selected
+        </div>
+        <div class="icon-btn">
+          <svg class="icon-btn__icon">
+            <use xlink:href="assets/sprite.svg#icon-delete"></use>
+          </svg>
+          <div class="icon-btn__text">Delete</div>
+        </div>
+        <div class="icon-btn">
+          <svg class="icon-btn__icon">
+            <use xlink:href="assets/sprite.svg#icon-move"></use>
+          </svg>
+          <div class="icon-btn__text">Move</div>
+        </div>
+
+        <div class="icon-btn">
+          <svg class="icon-btn__icon">
+            <use xlink:href="assets/sprite.svg#icon-link-1"></use>
+          </svg>
+          <div class="icon-btn__text">Shareable Link</div>
+        </div>
+        <div class="icon-btn" (click)="onDisplayContextMenu($event)"
+          [ngClass]="{ active: contextMenu && contextMenu.show ? true : false }">
+          <svg class="icon-btn__icon" style="width: 2rem; height: 2rem">
+            <use xlink:href="assets/sprite.svg#icon-dots-three-vertical"></use>
+          </svg>
+          <div class="icon-btn__text">More</div>
+        </div>
       </div>
-      <div
-        class="icon-btn"
-        (click)="onDisplayContextMenu($event)"
-        [ngClass]="{ active: contextMenu && contextMenu.show ? true : false }"
-      >
-        <svg class="icon-btn__icon" style="width: 2rem; height: 2rem">
-          <use xlink:href="assets/sprite.svg#icon-dots-three-vertical"></use>
-        </svg>
-        <div class="icon-btn__text">More</div>
-      </div>
+
     </div>
-    <button type="button" class="btn-outline" (click)="onShowFilterByTag()">
-      Filter by tags
-    </button>
+
   </div>
   <!-- <div class="divider divider--dark"></div> -->
   <div class="content">
     <ng-container *ngFor="let bookmark of bookmarks">
-      <app-bookmark-card
-        [bookmark]="bookmark"
-        [isChecked]="isCheckedAll"
-        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
-      ></app-bookmark-card>
+      <app-bookmark-card [bookmark]="bookmark" [isChecked]="isCheckedAll"
+        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"></app-bookmark-card>
     </ng-container>
   </div>
-  
+
 </div>
-<app-context-menu
-  [menuItems]="contextMenuItems"
-  (onMenuItemClicked)="onContextMenuClick($event)"
-></app-context-menu>
+<app-context-menu [menuItems]="contextMenuItems" (onMenuItemClicked)="onContextMenuClick($event)"></app-context-menu>
 <!-- <app-collection-list-dialog [collections]="collections"></app-collection-list-dialog> -->
-<div
-  class="tag-filter-panel"
-  [ngStyle]="{ right: showFilterByTagSection ? '0' : '-100%' }"
->
+<div class="tag-filter-panel" [ngStyle]="{ right: showFilterByTagSection ? '0' : '-100%' }">
   <div class="tag-filter-panel__header mb">
     <div class="tag-filter-panel__header-text">
       <h2>Filter by tags</h2>
