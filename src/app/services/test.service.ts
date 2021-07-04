@@ -6,17 +6,30 @@ import { Injectable } from '@angular/core';
 })
 export class TestService {
 
+  collections = [];
   constructor(private http: HttpClient) { }
 
   getBookmarks() {
-    return this.http.get('/bookmarks');
+    return this.http.get('http://localhost:5000/bookmarks');
   }
 
   getCollections() {
-    return this.http.get('/collections');
+    return this.http.get('http://localhost:5000/collections');
   }
 
   getTags() {
-    return this.http.get('/tags');
+    return this.http.get('http://localhost:5000/tags');
+  }
+
+  postCollection(requestBody: any) {
+    return this.http.post('http://localhost:5000/collection', requestBody);
+  }
+
+  putCollection(requestBody: any) {
+    return this.http.put(`http://localhost:5000/collection/${requestBody.id}`, requestBody);
+  }
+
+  postBookmark(requestBody: any) {
+    return this.http.post('http://localhost:5000/bookmark', requestBody)
   }
 }

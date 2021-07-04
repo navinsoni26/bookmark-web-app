@@ -1,25 +1,28 @@
-<form class="form">
-  <div class="form__row">
-    <label for="" class="form__label">Name</label>
-    <input type="text" class="form__input" />
-    <p class="form__error-text">Error Message</p>
-  </div>
+<form class="form" [formGroup]="bookmarkForm">
+  
   <div class="form__row">
     <label for="" class="form__label">Title</label>
-    <input type="text" class="form__input" />
+    <input type="text" class="form__input" formControlName="title"/>
     <p class="form__error-text">Error Message</p>
   </div>
   <div class="form__row">
     <label for="" class="form__label">Url</label>
-    <input type="text" class="form__input" />
+    <input type="text" class="form__input" formControlName="url"/>
+    <p class="form__error-text">Error Message</p>
+  </div>
+  <div class="form__row">
+    <label for="" class="form__label">Collection</label>
+    <select name="collection" id="collection" formControlName="collectionId">
+      <option *ngFor="let collection of collections" [value]="collection.id">{{collection.name}}</option>
+    </select>
     <p class="form__error-text">Error Message</p>
   </div>
   <div class="form__row">
     <label for="" class="form__label">Tags</label>
-    <app-tag-input></app-tag-input>
+    <app-tag-input #tagInput></app-tag-input>
   </div>
   <div class="form__btn-row">
-    <button class="form__btn" style="margin-left: 2rem">Save</button>
+    <button class="form__btn" style="margin-left: 2rem" (click)="onSubmit()">Save</button>
     <button class="btn-outline">Cancel</button>
   </div>
   

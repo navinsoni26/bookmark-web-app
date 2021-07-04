@@ -20,6 +20,8 @@ import { TagListComponent } from './components/tag-list/tag-list.component';
 import { RecentlySharedComponent } from './components/recently-shared/recently-shared.component';
 import { BookmarkFormComponent } from './components/bookmark-form/bookmark-form.component';
 import { TagInputComponent } from './components/tag-input/tag-input.component';
+import { CollectionFormComponent } from './components/collection-form/collection-form.component';
+import { CollectionDropdownComponent } from './components/collection-dropdown/collection-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TagInputComponent } from './components/tag-input/tag-input.component';
     TagListComponent,
     RecentlySharedComponent,
     BookmarkFormComponent,
-    TagInputComponent
+    TagInputComponent,
+    CollectionFormComponent,
+    CollectionDropdownComponent
   ],
   imports: [
     BrowserModule,

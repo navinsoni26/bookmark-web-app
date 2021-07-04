@@ -1,8 +1,8 @@
 <form (submit)="submit($event)">
   <div class="tag-container">
-    <div class="tag" *ngFor="let tag of selectedTags">
+    <div class="tag" *ngFor="let tag of selectedTags; let i = index;">
       <span>{{ tag.name }}</span>
-      <svg>
+      <svg (click)="removeFromSelectedTags(i)">
         <use
           xlink:href="assets/sprite.svg#icon-clear"
           href="assets/sprite.svg#icon-clear"
@@ -18,6 +18,8 @@
       autocomplete="off"
       (keyup)="inputKeyupEvent($event)"
     />
+
+    <!-- Tag List -->
     <div class="tag-list-container" *ngIf="displaySearchList">
       <ul class="tag-list">
         <li
@@ -27,7 +29,7 @@
             active: i === activeItemIndex
           }"
         >
-          {{ item.name }}
+          {{ item.id === 0 ? item.name + ' (Create New)' : item.name }}
         </li>
       </ul>
     </div>

@@ -12,7 +12,7 @@ export class Bookmark {
         tags: {
           id: number;
           name: string;
-        }
+        }[];
 
         constructor(){
             this.id = 0;
@@ -24,10 +24,10 @@ export class Bookmark {
             this.updatedAt = '';
             this.isFav = true;
             this.iconUrl = '';
-            this.tags = {
+            this.tags = [{
                 id : 0,
                 name:''
-            }
+            }];
         }
       
 }

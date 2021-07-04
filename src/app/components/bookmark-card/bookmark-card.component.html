@@ -16,10 +16,10 @@
     <div class="bookmark-card__url">{{ bookmark.url }}</div>
     <div class="bookmark-card__notes">{{ bookmark.notes }}</div>
     <div class="bookmark-card__additional-info">
-      <div class="bookmark-card__date">{{ bookmark.createdAt }}</div>
+      <div class="bookmark-card__date">{{ bookmark.createdAt | date}}</div>
       <span> </span>
       <div class="bookmark-card__tags">
-        <div class="chip chip--blue">
+        <div *ngFor="let tag of bookmark.tags" class="chip chip--blue">
           <svg class="chip__icon">
             <use
               xlink:href="assets/sprite.svg#icon-tag"
@@ -28,26 +28,7 @@
             Ï
           </svg>
 
-          Google Play
-          <div class="chip__icon-container">
-            <svg class="chip__icon--last">
-              <use
-                xlink:href="assets/sprite.svg#icon-clear"
-                href="assets/sprite.svg#icon-clear"
-              ></use>
-              Ï
-            </svg>
-          </div>
-        </div>
-        <div class="chip chip--blue">
-          <svg class="chip__icon chip__icon--blue">
-            <use
-              xlink:href="assets/sprite.svg#icon-tag"
-              href="assets/sprite.svg#icon-tag"
-            ></use>
-            Ï
-          </svg>
-          Screenshot
+          {{ tag.name }}
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
 <div class="header__content">
+    <div>
+        Bookmarks Web App
+    </div>
     <div class="search">
         <div class="search-box ">
             <input type="text" class="search-box__input">
@@ -12,5 +15,11 @@
             
         </div>
     </div>
+    <div>
+        <button class="btn-outline" (click)="addBookmark()">Add Bookmark</button>
+    </div>
 </div>
 
+<app-dialog *ngIf="showDialog" (closeDialogEvent) = "onCloseDialog(false) ">
+    <app-bookmark-form (closeForm)="onCloseDialog($event)"></app-bookmark-form>
+</app-dialog>

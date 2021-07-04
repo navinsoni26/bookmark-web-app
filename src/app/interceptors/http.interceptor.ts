@@ -11,16 +11,15 @@ export class MockHttpCalIInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log('Intercepted request' + request.url);
-        switch (request.url) {
-            case '/bookmarks':
-                return of(new HttpResponse({ status: 200, body: ((bookmarks) as any).default }));
-            case '/collections':
-                return of(new HttpResponse({ status: 200, body: ((collections) as any).default }));
-            case '/tags':
-                return of(new HttpResponse({ status: 200, body: ((tags) as any).default }));
-            default:
-                return of(new HttpResponse({ status: 200, body: ((collections) as any).default }));
-        }
+        return next.handle(request);
+        // switch (request.url) {
+        //     case '/bookmarks':
+        //         return of(new HttpResponse({ status: 200, body: ((bookmarks) as any).default }));
+        //     case '/tags':
+        //         return of(new HttpResponse({ status: 200, body: ((tags) as any).default }));
+        //     default:
+        //         next.handle(request);
+        // }
 
 
     }

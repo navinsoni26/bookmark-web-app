@@ -56,6 +56,9 @@ li{
     }
 
 }
+.collections {
+    // overflow-y: scroll;
+}
 .collection {
 
     &__link{
@@ -84,6 +87,8 @@ li{
     }
     &__menu {
         height: 100%;
+        background-color: lightblue;
+        cursor: pointer;
     }
     &__menu-icon {
         width: 14px;

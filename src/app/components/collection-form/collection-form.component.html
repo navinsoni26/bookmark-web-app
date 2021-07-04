@@ -1,0 +1,50 @@
+<form class="form" [formGroup]="collectionForm">
+  <div class="form__row">
+    <label for="" class="form__label">Name</label>
+    <input type="text" class="form__input" formControlName="name"/>
+    <p class="form__error-text">Error Message</p>
+  </div>
+  <div class="form__row">
+    <label for="" class="form__label">
+      <input
+        type="checkbox"
+        name="nest"
+        id="nest"
+        class="checkbox"
+        [checked]="nestUnderCollection"
+        (change)="onCheckboxChanged()"
+      />
+      <span style="margin-left: 10px;">Nest label Under</span> 
+    </label>
+    <div class="dropdown">
+      <div class="selected" (click)="onToggleDropdown()">
+        {{ selectedCollection.name }}
+      </div>
+      <div class="options" *ngIf="showList">
+        <ul>
+          <li
+            *ngFor="let item of collections"
+            (click)="onItemSelected(item)"
+            [ngClass]="{
+              active: item.id === selectedCollection?.id
+            }"
+          >
+            {{ item.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="form__error-text">Error Message</p>
+  </div>
+  <div class="form__btn-row">
+    <button class="form__btn" style="margin-left: 2rem"
+    [disabled]="collectionForm.invalid || (nestUnderCollection && selectedCollection.id === 0)"
+    (click)="submit()">
+        Save
+
+    </button>
+    <button class="btn-outline" (click)="onCloseForm(false)">Cancel</button>
+  </div>
+</form>
+
+<!-- Hide dropdown when clicked anywhere on the document -->

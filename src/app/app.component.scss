@@ -3,6 +3,8 @@
 .left-nav {
     grid-area: left-nav;
     background-color: white;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .header {
