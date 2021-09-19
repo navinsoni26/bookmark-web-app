@@ -25,7 +25,8 @@
     fill: #4c7dca;
 
     &:hover {
-      border: 2px solid #4e91fe;
+      // border: 2px solid #4e91fe;
+      background-color: darken(#ebf2ff, 10%);
       color: #2663c7;
       fill: #2663c7;
     }

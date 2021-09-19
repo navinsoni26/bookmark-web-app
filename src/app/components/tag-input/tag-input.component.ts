@@ -56,6 +56,13 @@ export class TagInputComponent implements OnInit {
     );
   }
 
+  onItemSelection(item: any) {
+    console.log('OnItemSelection = ', item);
+    this.selectedTags.push(item);
+      this.tagInputControl.setValue('');
+      this.activeItemIndex = 0;
+  }
+
   removeFromSelectedTags(index: number) {
     console.log('Remove fromSelectedTags, index = ', index);
     this.selectedTags.splice(index, 1);
@@ -75,14 +82,14 @@ export class TagInputComponent implements OnInit {
     }
     if (event.key === 'ArrowUp') {
       if (this.activeItemIndex === 0) {
-        this.activeItemIndex = this.searchList.length - 1;
+        // this.activeItemIndex = this.searchList.length - 1;
       } else {
         this.activeItemIndex = this.activeItemIndex - 1;
       }
     }
     if (event.key === 'ArrowDown') {
       if (this.activeItemIndex === this.searchList.length - 1) {
-        this.activeItemIndex = 0;
+        // this.activeItemIndex = 0;
       } else {
         this.activeItemIndex = this.activeItemIndex + 1;
       }
@@ -95,32 +102,20 @@ export class TagInputComponent implements OnInit {
     // if(liElement.offsetTop > 90) {
     //   ulElement .scrollTop += 31;
     // }
-    // console.log('UL Element ClientHieght = ', ulElement.clientHeight);
-    // console.log('UL Element ScrollHeight = ', ulElement.scrollHeight);
-    // console.log('UL Element OffsetTop = ', ulElement.offsetTop);
-    // console.log('UL Element ScrollTop = ', ulElement.scrollTop);
-    // console.log('LI Element ClientHieght = ', liElement.clientHeight);
-    // console.log('LI Element OffsetTop = ', this.getOffsetTop(liElement));
     console.log('LI Element = ', liElement);
-    console.log('LI Element OffsetTop = ', liElement.offsetTop + liElement.clientHeight);
+    console.log('LI Element OffsetTop = ', liElement.offsetTop);
+    console.log('LI Element OffsetTop + Client Height = ', liElement.offsetTop + liElement.clientHeight);
     console.log('UI Element clientHeight = ', ulElement.clientHeight);
+    console.log('LI Element clientTop = ', liElement.clientTop);
     const a = liElement.offsetTop + liElement.clientHeight;
     const b = ulElement.clientHeight;
-    if(a > b) {
-      ulElement.scrollTop = a -b;
-    }
+    
+      if(a > b) {
+        ulElement.scrollTop = a - b;
+      }
     
     
 
-  }
-
-  getOffsetTop(element: any) {
-    let offsetTop = 0;
-    while(element) {
-      offsetTop += element.offsetTop;
-      element = element.offsetParent;
-    }
-    return offsetTop;
   }
 
 }

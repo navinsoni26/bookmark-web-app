@@ -1,74 +1,37 @@
 <div class="bookmarks">
   <div class="bookmarks__header">
+    <!-- Global Checkbox -->
     <div>
       <input type="checkbox" name="globalCheckbox" id="globalCheckbox" class="checkbox"
         [indeterminate]="indeterminateState" [checked]="isCheckedAll" (change)="onGlobalCheckboxChecked()" />
     </div>
+    <!-- Remaining Header Content  -->
     <div class="bookmarks__header-content">
-      <h2 class="heading-2">Personal</h2>
-      <div class="bookmarks__header-detail" style="display: none;">
-        <div class="chip chip--blue">
+
+      <!-- Collection Name  -->
+      <h2 class="heading-2" *ngIf="isCollectionDataDisplayed">{{ collectionName }}</h2>
+
+      <!-- Tags List, if filter by tag is used  -->
+      <div class="bookmarks__header-detail" *ngIf="!isCollectionDataDisplayed">
+        <div class="chip chip--blue" *ngFor="let tagItem of selectedTags">
           <svg class="chip__icon">
             <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
-            Ï
           </svg>
-
-          Google Play
+          {{ tagItem.name }}
           <div class="chip__icon-container">
             <svg class="chip__icon--last">
               <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
-              Ï
             </svg>
           </div>
         </div>
-        <div class="chip chip--blue">
-          <svg class="chip__icon">
-            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
-            Ï
-          </svg>
-
-          Google Play
-          <div class="chip__icon-container">
-            <svg class="chip__icon--last">
-              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
-              Ï
-            </svg>
-          </div>
-        </div>
-        <div class="chip chip--blue">
-          <svg class="chip__icon">
-            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
-            Ï
-          </svg>
-
-          Google Play
-          <div class="chip__icon-container">
-            <svg class="chip__icon--last">
-              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
-              Ï
-            </svg>
-          </div>
-        </div>
-        <div class="chip chip--blue">
-          <svg class="chip__icon">
-            <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
-            Ï
-          </svg>
-
-          Google Play
-          <div class="chip__icon-container">
-            <svg class="chip__icon--last">
-              <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
-              Ï
-            </svg>
-          </div>
-        </div>
-
       </div>
 
+      <!-- Fliter by tags button  -->
       <button type="button" class="btn-outline" (click)="onShowFilterByTag()">
         Filter by tags
       </button>
+
+      <!-- Header Actions  -->
       <div class="bookmarks__header-actions" [ngStyle]="{
           visibility: selectedBookmarks.length > 0 ? 'visible' : 'hidden'
         }">
@@ -117,6 +80,8 @@
 </div>
 <app-context-menu [menuItems]="contextMenuItems" (onMenuItemClicked)="onContextMenuClick($event)"></app-context-menu>
 <!-- <app-collection-list-dialog [collections]="collections"></app-collection-list-dialog> -->
+
+<!-- Tags List  -->
 <div class="tag-filter-panel" [ngStyle]="{ right: showFilterByTagSection ? '0' : '-100%' }">
   <div class="tag-filter-panel__header mb">
     <div class="tag-filter-panel__header-text">
@@ -140,16 +105,13 @@
     </div>
   </div>
   <div class="tags-wrapper">
-    <div class="tags">
-      <h3 class="tags__label">A</h3>
+    <div class="tags" *ngFor="let item of tagsMap | keyvalue">
+      <h3 class="tags__label">{{ item.key.toUpperCase() }}</h3>
       <div class="tag__items">
-        <div class="chip chip--blue">about</div>
-        <div class="chip chip--blue">accordion</div>
-        <div class="chip chip--blue">account</div>
-        <div class="chip chip--blue">activity</div>
+        <div class="chip chip--blue" *ngFor="let tag of item.value" (click)="onTagItemClicked(tag)" [ngClass]="{'active': tag.isActive}">{{ tag.name }}</div>
       </div>
     </div>
-    <div class="tags">
+    <!-- <div class="tags">
       <h3 class="tags__label">B</h3>
       <div class="tag__items">
         <div class="chip chip--blue">background</div>
@@ -176,6 +138,6 @@
         <div class="chip chip--blue">color picker</div>
         <div class="chip chip--blue">coming soon</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

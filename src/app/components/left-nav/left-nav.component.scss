@@ -40,9 +40,9 @@ li{
     display: flex;
     align-items: center;
 
-    &:hover {
-        background-color: lightgray;
-    }
+    // &:hover {
+    //     background-color: lightgray;
+    // }
 }
 
 .children  {
@@ -51,9 +51,9 @@ li{
     display: flex;
     align-items: center;
 
-    &:hover {
-        background-color: lightgray;
-    }
+    // &:hover {
+    //     background-color: lightgray;
+    // }
 
 }
 .collections {
@@ -88,6 +88,8 @@ li{
     &__menu {
         height: 100%;
         background-color: lightblue;
+        padding: .2rem .6rem;
+        border-radius: 5000px;
         cursor: pointer;
     }
     &__menu-icon {
@@ -104,9 +106,9 @@ li{
         margin-right: 5px;
         cursor: pointer;
 
-        &:hover {
-            background-color: rgb(151, 148, 148);
-        }
+        // &:hover {
+        //     // background-color: rgb(151, 148, 148);
+        // }
     }
 
 }

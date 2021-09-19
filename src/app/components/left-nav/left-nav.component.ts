@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Collection } from 'src/app/models/collection';
+import { CollectionService } from 'src/app/services/collection.service';
 import { TestService } from 'src/app/services/test.service';
 
 @Component({
@@ -13,10 +14,12 @@ export class LeftNavComponent implements OnInit {
   showDialog = false;
   isNewCollection = true;
   selectedCollection: any = null;
-  constructor(private service: TestService) { }
+  constructor(
+    private service: TestService,
+    private collectionService: CollectionService) { }
 
   ngOnInit(): void {
-    this.service.getCollections().subscribe(
+    this.collectionService.getCollections().subscribe(
       response => {
         
         this.collections = response as Collection[];

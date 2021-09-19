@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  @Input() title: any;
   @Output() closeDialogEvent = new EventEmitter();
   constructor() { }
 

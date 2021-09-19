@@ -1,0 +1,27 @@
+.message-container {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+}
+.message {
+  padding: 1rem 2rem;
+
+  &--success {
+    background-color: #C8E6C9;
+  }
+
+  &--error {
+    background-color: #FFCDD2;
+  }
+
+  &--warning {
+    background-color: #FFECB3;
+  }
+
+  &--info {
+    background-color: #B3E5FC;
+  }
+}

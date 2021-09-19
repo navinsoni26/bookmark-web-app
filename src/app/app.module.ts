@@ -22,6 +22,7 @@ import { BookmarkFormComponent } from './components/bookmark-form/bookmark-form.
 import { TagInputComponent } from './components/tag-input/tag-input.component';
 import { CollectionFormComponent } from './components/collection-form/collection-form.component';
 import { CollectionDropdownComponent } from './components/collection-dropdown/collection-dropdown.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CollectionDropdownComponent } from './components/collection-dropdown/co
     BookmarkFormComponent,
     TagInputComponent,
     CollectionFormComponent,
-    CollectionDropdownComponent
+    CollectionDropdownComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

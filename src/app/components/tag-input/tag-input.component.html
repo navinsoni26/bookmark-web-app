@@ -28,6 +28,7 @@
           [ngClass]="{
             active: i === activeItemIndex
           }"
+          (click)="onItemSelection(item)"
         >
           {{ item.id === 0 ? item.name + ' (Create New)' : item.name }}
         </li>

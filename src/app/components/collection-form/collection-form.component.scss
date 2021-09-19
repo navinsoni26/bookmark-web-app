@@ -4,6 +4,7 @@
   &__row {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
   }
 
   &__label {
@@ -14,7 +15,7 @@
   &__error-text {
     visibility: hidden;
     font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 500;
     color: red;
   }
 
@@ -25,6 +26,7 @@
     border-radius: 5px;
     border-bottom: 2px solid transparent;
     outline: none;
+    font-size: 1.5rem;
   }
 
   &__input:focus {

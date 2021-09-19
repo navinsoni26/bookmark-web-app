@@ -1,0 +1,12 @@
+List of Operations user can perform:
+1. Add a new Bookmark.
+2. View All bookmarks.
+3. Delete bookmarks.
+4. Edit Bookmarks.
+5. Share single bookmark.
+6. Share multiple bookmark.
+7. Mark bookmark as favorite,
+8. Remove bookmark from favorite.
+9. Move Bookmarks to other collection
+10. Add tags to a bookmark.
+11. Remove tags from a bookmark.

@@ -1,0 +1,23 @@
+<div class="message-container" [hidden]="hidden">
+    <div class="message__content" [ngSwitch]="message?.type">
+        <div *ngSwitchCase="eMessageType.Success" class="message message--success">
+            <h4>Success</h4>
+            <p>{{message.text}}</p>
+        </div>
+        <div *ngSwitchCase="eMessageType.Error" class="message message--error">
+            <h4>Error</h4>
+            <p>{{message.text}}</p>
+        </div>
+        <div *ngSwitchCase="eMessageType.Warning" class="message message--warning">
+            <h4>Warning</h4>
+            <p>{{message.text}}</p>
+        </div>
+        <div *ngSwitchCase="eMessageType.Info" class="message message--info">
+            <h4>Info</h4>
+            <p>{{message.text}}</p>
+        </div>
+        <div *ngSwitchDefault>
+            <h4>No Message</h4>
+        </div>
+    </div>
+</div>

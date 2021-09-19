@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'tags', component: TagListComponent },
   { path: 'collections', component: CollectionListComponent },
   { path: 'bookmarks', component: BookmarkListComponent},
-  { path: 'bookmarks/:id', component: BookmarkListComponent }
+  { path: 'bookmarks/:id/:name', component: BookmarkListComponent }
 
   // {path: 'collection'}
 ];

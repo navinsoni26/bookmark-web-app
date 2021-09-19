@@ -1,9 +1,12 @@
 <form class="form" [formGroup]="collectionForm">
+  <!-- Collection Name -->
   <div class="form__row">
     <label for="" class="form__label">Name</label>
-    <input type="text" class="form__input" formControlName="name"/>
-    <p class="form__error-text">Error Message</p>
+    <input type="text" class="form__input" formControlName="name" />
+    <p class="form__error-text">Name is required to create a new Collection</p>
   </div>
+
+  <!-- Nest Under checkbox and parent list dropdown -->
   <div class="form__row">
     <label for="" class="form__label">
       <input
@@ -14,7 +17,7 @@
         [checked]="nestUnderCollection"
         (change)="onCheckboxChanged()"
       />
-      <span style="margin-left: 10px;">Nest label Under</span> 
+      <span style="margin-left: 10px">Nest label Under</span>
     </label>
     <div class="dropdown">
       <div class="selected" (click)="onToggleDropdown()">
@@ -34,14 +37,21 @@
         </ul>
       </div>
     </div>
-    <p class="form__error-text">Error Message</p>
+    <p class="form__error-text">Please select parent collection</p>
   </div>
-  <div class="form__btn-row">
-    <button class="form__btn" style="margin-left: 2rem"
-    [disabled]="collectionForm.invalid || (nestUnderCollection && selectedCollection.id === 0)"
-    (click)="submit()">
-        Save
 
+  <!-- Button Row -> Save and Cancel button -->
+  <div class="form__btn-row">
+    <button
+      class="form__btn"
+      style="margin-left: 2rem"
+      [disabled]="
+        collectionForm.invalid ||
+        (nestUnderCollection && selectedCollection.id === 0)
+      "
+      (click)="submit()"
+    >
+      Save
     </button>
     <button class="btn-outline" (click)="onCloseForm(false)">Cancel</button>
   </div>

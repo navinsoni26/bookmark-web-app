@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessageType } from 'src/app/models/message.data';
+import { CollectionService } from 'src/app/services/collection.service';
+import { MessageService } from 'src/app/services/message.service';
 import { TestService } from 'src/app/services/test.service';
 
 @Component({
@@ -18,7 +21,11 @@ export class CollectionFormComponent implements OnInit {
   collectionForm: FormGroup;
 
   @Output() closeForm = new EventEmitter();
-  constructor(private service: TestService) {
+  constructor(
+    private service: TestService,
+    private collectionService: CollectionService,
+    private messageService: MessageService
+    ) {
     this.collectionForm = new FormGroup({
       name: new FormControl('', Validators.required)
     })
@@ -28,8 +35,9 @@ export class CollectionFormComponent implements OnInit {
     console.log('isNewCollection = ', this.isNewCollection);
     console.log('collection = ', this.collection);
     this.selectedCollection = this.collections[0];
-    this.service.getCollections().subscribe(
+    this.collectionService.collectionSubject.subscribe(
       (res: any) => {
+        console.log('Response from subject = ', res);
         const obj = res.map((item: any) => ({ id: item.id, name: item.name }));
         this.collections = [...this.collections, ...obj];
         console.log(this.collections);
@@ -77,13 +85,18 @@ export class CollectionFormComponent implements OnInit {
         'hidden': 0,
         'parentId': this.selectedCollection.id !== 0 ? this.selectedCollection.id : null
       };
-      this.service.postCollection(requestBody).subscribe(
+      this.collectionService.createCollection(requestBody).subscribe(
         res => {
           console.log('Response = ', res);
+          this.messageService.successMessage('Collection created successfully');
           this.onCloseForm(true);
+
         },
         err => {
           console.log('Error = ', err);
+          this.messageService.errorMessage('Failed to create new collection');
+          this.onCloseForm(false);
+          
         }
       )
     } else {
