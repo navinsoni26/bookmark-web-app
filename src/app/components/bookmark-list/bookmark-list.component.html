@@ -18,7 +18,7 @@
             <use xlink:href="assets/sprite.svg#icon-tag" href="assets/sprite.svg#icon-tag"></use>
           </svg>
           {{ tagItem.name }}
-          <div class="chip__icon-container">
+          <div class="chip__icon-container" (click)="onRemoveTagIconClicked(tagItem)">
             <svg class="chip__icon--last">
               <use xlink:href="assets/sprite.svg#icon-clear" href="assets/sprite.svg#icon-clear"></use>
             </svg>
@@ -73,7 +73,8 @@
   <div class="content">
     <ng-container *ngFor="let bookmark of bookmarks">
       <app-bookmark-card [bookmark]="bookmark" [isChecked]="isCheckedAll"
-        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"></app-bookmark-card>
+        (isBookmarkSelectedEvent)="onBookmarkChecked($event, bookmark.id)"
+        (onClickCardActionEvent)="onBookmarkCardAction($event)"></app-bookmark-card>
     </ng-container>
   </div>
 

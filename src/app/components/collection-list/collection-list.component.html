@@ -1,5 +1,16 @@
 <div class="collection-container">
   <h2 class="heading-1">Collections</h2>
+  <div class="search-box mb">
+    <input type="text" class="search-box__input" [formControl]="searchCollectionInput" placeholder="Search Collection by Name or No. of Bookmarks">
+    <div class="search-box__icon-container">
+        <svg class="search-box__icon" >
+            <use 
+            xlink:href="assets/sprite.svg#icon-search" >
+            </use>
+        </svg>
+    </div>
+    
+</div>
   <table class="table">
     <thead class="table-head">
       <tr>
@@ -10,16 +21,17 @@
       </tr>
     </thead>
     <tbody class="table-body">
-      <ng-container *ngFor="let collection of collections; index as i">
+      <!-- Parent row container starts here  -->
+      <ng-container *ngFor="let collection of list; index as i">
         <tr>
           <td class="name-column">
             <div>
-              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="expandCollapseArray[i]">
+              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="collection.children.length > 0 && expandCollapseArray[i]">
                 <use
                   xlink:href="assets/sprite.svg#icon-caret-down"
                 ></use>
               </svg>
-              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="!expandCollapseArray[i]">
+              <svg class="expand-icon" (click)="expandCollapseArray[i] = !expandCollapseArray[i]" *ngIf="collection.children.length > 0 && !expandCollapseArray[i]">
                 <use
                   xlink:href="assets/sprite.svg#icon-caret-right"
                 ></use>
@@ -36,19 +48,22 @@
             </label>
           </td>
           <td class="action-column">
-            <div class="icon-btn">
+            <!-- Edit  -->
+            <div class="icon-btn" (click)="onAction(eCollectionAction.Edit, collection)">
               <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-edit"></use>
               </svg>
               <div class="icon-btn__text">Edit</div>
             </div>
-            <div class="icon-btn">
+            <!-- Share  -->
+            <div class="icon-btn" (click)="onAction(eCollectionAction.Share, collection)">
               <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-share"></use>
               </svg>
               <div class="icon-btn__text">Share</div>
             </div>
-            <div class="icon-btn">
+            <!-- Delete  -->
+            <div class="icon-btn" (click)="onAction(eCollectionAction.Delete, collection)">
               <svg class="icon-btn__icon">
                 <use xlink:href="assets/sprite.svg#icon-delete"></use>
               </svg>
@@ -56,6 +71,8 @@
             </div>
           </td>
         </tr>
+
+        <!-- Children row container starts here -->
         <ng-container *ngIf="collection.children.length > 0">
           <tr *ngFor="let child of collection.children" style="background-color: #f0f0f0;" [ngStyle]="{'display' : expandCollapseArray[i] ? '' : 'none'}">
             <td class="name-column--child">{{ child.name }}</td>
@@ -67,19 +84,22 @@
               </label>
             </td>
             <td class="action-column">
-              <div class="icon-btn">
+              <!-- Edit  -->
+              <div class="icon-btn" (click)="onAction(eCollectionAction.Edit, child)">
                 <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-edit"></use>
                 </svg>
                 <div class="icon-btn__text">Edit</div>
               </div>
-              <div class="icon-btn">
+              <!-- Share  -->
+              <div class="icon-btn" (click)="onAction(eCollectionAction.Share, child)">
                 <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-share"></use>
                 </svg>
                 <div class="icon-btn__text">Share</div>
               </div>
-              <div class="icon-btn">
+              <!-- Delete  -->
+              <div class="icon-btn" (click)="onAction(eCollectionAction.Delete, child)">
                 <svg class="icon-btn__icon">
                   <use xlink:href="assets/sprite.svg#icon-delete"></use>
                 </svg>
@@ -88,7 +108,10 @@
             </td>
           </tr>
         </ng-container>
+        <!-- Children row container ends here -->
       </ng-container>
+      <!-- Parent row container ends here -->
     </tbody>
   </table>
 </div>
+<app-collection-delete></app-collection-delete>

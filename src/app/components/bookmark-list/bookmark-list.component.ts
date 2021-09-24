@@ -148,9 +148,30 @@ export class BookmarkListComponent implements OnInit {
   }
 
   onTagItemClicked(clickedTag: any) {
-    this.isCollectionDataDisplayed = false;
     clickedTag.isActive = !clickedTag.isActive;
-    this.selectedTags = [...this.selectedTags, clickedTag];
-    // this.selectedTags.push(clickedTag);
+
+    // if tag is active, add it to selectedTags list, otherwise remove it from selectedTags list
+    if(clickedTag.isActive) {
+      this.selectedTags = [...this.selectedTags, clickedTag];
+    } else {
+      this.selectedTags = this.selectedTags.filter(tag => tag.id !== clickedTag.id);
+    }
+
+    this.isCollectionDataDisplayed = this.selectedTags.length > 0 ? false : true;
+  }
+
+  onRemoveTagIconClicked(tagToRemove: any) {
+    // Remove tag from selectedTags list and make isActive flag as false
+    tagToRemove.isActive = false;
+    this.selectedTags = this.selectedTags.filter(tag => tag.id !== tagToRemove.id);
+    this.isCollectionDataDisplayed = this.selectedTags.length > 0 ? false : true;
+  }
+
+  onDeleteBookmarks(bookmarksToDelete: any[]) {
+
+  }
+
+  onBookmarkCardAction(event: any) {
+    console.log('Bookmark card action = ', event);
   }
 }

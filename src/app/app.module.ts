@@ -23,6 +23,8 @@ import { TagInputComponent } from './components/tag-input/tag-input.component';
 import { CollectionFormComponent } from './components/collection-form/collection-form.component';
 import { CollectionDropdownComponent } from './components/collection-dropdown/collection-dropdown.component';
 import { MessageComponent } from './components/message/message.component';
+import { CollectionDeleteComponent } from './components/collection/collection-delete/collection-delete.component';
+import { CollectionAddEditComponent } from './components/collection/collection-add-edit/collection-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { MessageComponent } from './components/message/message.component';
     TagInputComponent,
     CollectionFormComponent,
     CollectionDropdownComponent,
-    MessageComponent
+    MessageComponent,
+    CollectionDeleteComponent,
+    CollectionAddEditComponent
   ],
   imports: [
     BrowserModule,

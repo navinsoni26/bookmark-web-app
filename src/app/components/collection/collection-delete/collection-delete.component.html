@@ -1,0 +1,12 @@
+<app-dialog
+  (closeDialogEvent)="onCloseDialog($event)"
+  [title]="'Delete Collection'"
+>
+  <div>
+    <p>Are you sure want to delete this Collection ?</p>
+    <div class="form__btn-row">
+      <button class="btn-outline" style="margin-left: 2rem">Yes</button>
+      <button class="btn-outline">No</button>
+    </div>
+  </div>
+</app-dialog>

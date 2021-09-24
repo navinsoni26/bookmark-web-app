@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Bookmark } from 'src/app/models/bookmark';
+import { CardAction } from 'src/app/models/constants';
 
 @Component({
   selector: 'app-bookmark-card',
@@ -8,8 +9,12 @@ import { Bookmark } from 'src/app/models/bookmark';
 })
 export class BookmarkCardComponent implements OnInit {
   @Input() bookmark: Bookmark = new Bookmark() ;
-  @Output() isBookmarkSelectedEvent = new EventEmitter<boolean>();
   @Input() isChecked = false;
+  @Output() isBookmarkSelectedEvent = new EventEmitter<boolean>();
+  @Output() onClickCardActionEvent = new EventEmitter();
+
+  eCardAction = CardAction;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +24,10 @@ export class BookmarkCardComponent implements OnInit {
     this.isChecked = !this.isChecked;
     console.log(this.isChecked);
     this.isBookmarkSelectedEvent.emit(this.isChecked);
+  }
+
+  onCardAction(action: CardAction) {
+    this.onClickCardActionEvent.emit({action, bookmark: this.bookmark});
   }
 
 }
