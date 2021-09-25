@@ -18,6 +18,9 @@ export class CollectionListComponent implements OnInit {
   searchCollectionInput: FormControl;
   mapOfChildren = new Map();
   eCollectionAction = CollectionAction;
+  showDeleteDialog = false;
+  showFormDialog = false;
+  currentCollection: any;
 
   constructor(
     private collectionService: CollectionService
@@ -70,18 +73,36 @@ export class CollectionListComponent implements OnInit {
 
   onAction(action: CollectionAction, selectedCollection: any) {
     console.log('Selected Collection =', selectedCollection);
-    switch(action) {
+    switch (action) {
       case CollectionAction.Edit:
         console.log('Edit Collection');
+        this.currentCollection = selectedCollection;
+        this.showFormDialog = true;
         break;
       case CollectionAction.Delete:
         console.log('Delete collection');
+        this.currentCollection = selectedCollection;
+        this.showDeleteDialog = true;
         break;
       case CollectionAction.Share:
         console.log('Share Collection');
         break;
       default:
         console.log('Default case');
+    }
+  }
+
+  closeDeleteDialog(reloadRequired: any) {
+    this.showDeleteDialog = false;
+    if (reloadRequired) {
+      this.collectionService.updateCollectionSubject();
+    }
+  }
+
+  closeFormDialog(reloadRequired: boolean = false) {
+    this.showFormDialog = false;
+    if(reloadRequired) {
+      this.collectionService.updateCollectionSubject();
     }
   }
 

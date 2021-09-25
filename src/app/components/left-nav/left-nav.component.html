@@ -89,6 +89,5 @@
     </div>
 </div>
 
-<app-dialog *ngIf="showDialog" (closeDialogEvent) = "onCloseDialog($event) " [title]="isNewCollection ? 'Create Collection' : 'Edit Collection'">
-    <app-collection-form [isNewCollection] = "isNewCollection" [collection]="selectedCollection" (closeForm)="onCloseDialog($event)"></app-collection-form>
-</app-dialog>
+
+<app-collection-add-edit *ngIf="showDialog" [isNewCollection]="isNewCollection" [collection]="selectedCollection" (onCollectionFormClosed)="onCloseDialog($event)"></app-collection-add-edit>

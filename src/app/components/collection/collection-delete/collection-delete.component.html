@@ -1,12 +1,12 @@
 <app-dialog
-  (closeDialogEvent)="onCloseDialog($event)"
+  (closeDialogEvent)="closeDeleteDialog(false)"
   [title]="'Delete Collection'"
 >
   <div>
-    <p>Are you sure want to delete this Collection ?</p>
+    <p>Are you sure want to delete this Collection {{ collectionToDelete.name }}?</p>
     <div class="form__btn-row">
-      <button class="btn-outline" style="margin-left: 2rem">Yes</button>
-      <button class="btn-outline">No</button>
+      <button class="btn-outline" style="margin-left: 2rem" (click)="deleteCollection()">Yes</button>
+      <button class="btn-outline" (click)="closeDeleteDialog(false)">No</button>
     </div>
   </div>
 </app-dialog>

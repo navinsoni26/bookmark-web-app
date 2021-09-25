@@ -1,0 +1,18 @@
+.tag-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.tag-card {
+    display: flex;
+    background-color: red;
+    padding: 1rem 2rem;
+
+    &__name {
+        flex: 1;
+    }
+
+    &__count {
+        padding: 0.5rem;
+    }
+}

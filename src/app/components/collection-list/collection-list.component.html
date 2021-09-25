@@ -114,4 +114,5 @@
     </tbody>
   </table>
 </div>
-<app-collection-delete></app-collection-delete>
+<app-collection-delete *ngIf="showDeleteDialog" [collectionToDelete]="currentCollection" (onDeleteDialogClosed)="closeDeleteDialog($event)"></app-collection-delete>
+<app-collection-add-edit *ngIf="showFormDialog" [isNewCollection]="false" [collection]="currentCollection" (onCollectionFormClosed)="closeFormDialog($event)"></app-collection-add-edit>

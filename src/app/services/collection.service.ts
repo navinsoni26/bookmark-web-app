@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { SERVER_IP } from 'src/environments/environment';
 import { Collection } from '../models/collection';
@@ -24,6 +24,12 @@ export class CollectionService {
         this.collectionSubject.next(res);
       })
     );
+  }
+
+  updateCollectionSubject() {
+    this.getCollections().subscribe(
+      res => console.log(res)
+    )
   }
 
   /**
@@ -58,7 +64,12 @@ export class CollectionService {
    * @param collectionIds id of collection to delete
    */
   deleteCollections(collectionIds: string[]) {
+    // const url = 
+  }
 
+  deleteCollection(collectionId: string): Observable<any> {
+    const url = `${SERVER_IP}/collection/${collectionId}`;
+    return this.http.delete(url);
   }
 
   /**
